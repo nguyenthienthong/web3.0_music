@@ -24,7 +24,7 @@ const Footer = () => {
     <div className="footer">
       {data.map((e) => {
         return (
-          <div className="footer__item" span={6}>
+          <div key={e.id} className="footer__item" span={6}>
             <h2>{e.name}</h2>
             <ul>
               <li>Giới thiêụ</li>

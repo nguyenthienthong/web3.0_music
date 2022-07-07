@@ -1,11 +1,21 @@
+import { Layout } from "antd";
 import React from "react";
-import ProfileCV from "./ProfileCV";
-
+import { Route, Routes } from "react-router-dom";
+import Footer from "../../components/layoutComponent/footer";
+import Header from "../../components/layoutComponent/header";
+import Home from "./Home";
+const { Content } = Layout;
 const AppViews = () => {
   return (
-    <div className="app-views">
-      <ProfileCV />
-    </div>
+    <Layout>
+      <Header />
+      <Content>
+        <Routes>
+          <Route path="*" element={<Home />}></Route>
+        </Routes>
+      </Content>
+      <Footer />
+    </Layout>
   );
 };
 

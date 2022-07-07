@@ -2,7 +2,7 @@ import { Row } from "antd";
 import React from "react";
 import ListCV from "./ListCV";
 import NavSearch from "./NavSearch";
-const ProfileCV = () => {
+const Home = () => {
   return (
     <>
       <Row className="profile">
@@ -51,9 +51,9 @@ const ProfileCV = () => {
               <li>Các mẫu CV hỗ trợ đa ngôn ngữ: tiếng Anh / Nhật / Việt.</li>
             </ul>
           </div>
-          <nav class="table-of-content">
+          <nav className="table-of-content">
             <p style={{ marginBottom: "15px", fontSize: "20px" }}>Mục lục:</p>
-            <ul class="none-list-style">
+            <ul className="none-list-style">
               <li>
                 <h2 className="mp-0">
                   <span className="table-content h4 big-item">
@@ -198,8 +198,8 @@ const ProfileCV = () => {
             </ul>
           </nav>
           <div>
-            <p class="c2 c29">
-              <span class="c11 c43"></span>
+            <p className="c2 c29">
+              <span className="c11 c43"></span>
             </p>
           </div>
           <p className="c7">
@@ -212,12 +212,8 @@ const ProfileCV = () => {
             </span>
           </p>
 
-          <div class="div-btn-more-info">
-            <button
-              class="btn btn-info btn-more-info"
-              id="btn-more-info"
-              onclick="collapseContent()"
-            >
+          <div className="div-btn-more-info">
+            <button className="btn btn-info btn-more-info" id="btn-more-info">
               Xem thêm
             </button>
           </div>
@@ -227,4 +223,4 @@ const ProfileCV = () => {
   );
 };
 
-export default ProfileCV;
+export default Home;

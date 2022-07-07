@@ -7,7 +7,7 @@ const ListCV = () => {
     <Col span={18} className="list-template-cv">
       <div className="list-template-cv__body">
         <div className="heading">
-          <h1 class="suggest-title">
+          <h1 className="suggest-title">
             Danh sách mẫu CV xin việc tiếng Anh / Việt / Nhật chuẩn 2022
           </h1>
           <p>
@@ -26,18 +26,18 @@ const ListCV = () => {
                         src="https://www.topcv.vn/images/cv/screenshots/thumbs/cv-template-thumbnails-v1.2/basic_5.png?v=1.0.3"
                         alt=""
                       />
-                      <div class="new-template">
-                        <i class="fa fa-certificate"></i> Mới
+                      <div className="new-template">
+                        <i className="fa fa-certificate"></i> Mới
                       </div>
                     </div>
 
                     <div className="cv-overlay">
                       <div className="control">
-                        <span class="preview-button">
+                        <span className="preview-button">
                           <EyeFilled /> Xem trước
                         </span>
-                        <span class="create-cv-button">
-                          <i class="fa fa-pencil"></i> Dùng mẫu này
+                        <span className="create-cv-button">
+                          <i className="fa fa-pencil"></i> Dùng mẫu này
                         </span>
                       </div>
                     </div>
@@ -45,8 +45,8 @@ const ListCV = () => {
                 </div>
                 <div className="template-cv-item__info">
                   <div style={{ display: "flex", flexWrap: "wrap" }}>
-                    <span class="template-cv-item-tag">Chuyên nghiệp</span>
-                    <span class="template-cv-item-tag">Sáng tạo</span>
+                    <span className="template-cv-item-tag">Chuyên nghiệp</span>
+                    <span className="template-cv-item-tag">Sáng tạo</span>
                   </div>
                   <div className="template-cv-title">
                     <span>Mẫu CV Basic 5</span>
@@ -81,18 +81,18 @@ const ListCV = () => {
                         src="https://www.topcv.vn/images/cv/screenshots/thumbs/cv-template-thumbnails-v1.2/basic_4.png?v=1.0.3"
                         alt=""
                       />
-                      <div class="new-template">
-                        <i class="fa fa-certificate"></i> Mới
+                      <div className="new-template">
+                        <i className="fa fa-certificate"></i> Mới
                       </div>
                     </div>
 
                     <div className="cv-overlay">
                       <div className="control">
-                        <span class="preview-button">
+                        <span className="preview-button">
                           <EyeFilled /> Xem trước
                         </span>
-                        <span class="create-cv-button">
-                          <i class="fa fa-pencil"></i> Dùng mẫu này
+                        <span className="create-cv-button">
+                          <i className="fa fa-pencil"></i> Dùng mẫu này
                         </span>
                       </div>
                     </div>
@@ -100,8 +100,8 @@ const ListCV = () => {
                 </div>
                 <div className="template-cv-item__info">
                   <div style={{ display: "flex", flexWrap: "wrap" }}>
-                    <span class="template-cv-item-tag">Chuyên nghiệp</span>
-                    <span class="template-cv-item-tag">Sáng tạo</span>
+                    <span className="template-cv-item-tag">Chuyên nghiệp</span>
+                    <span className="template-cv-item-tag">Sáng tạo</span>
                   </div>
                   <div className="template-cv-title">
                     <span>Mẫu CV Basic 4</span>
@@ -136,8 +136,8 @@ const ListCV = () => {
                         src="https://www.topcv.vn/images/cv/screenshots/thumbs/cv-template-thumbnails-v1.2/hello.png?v=1.0.3"
                         alt=""
                       />
-                      <div class="new-template">
-                        <i class="fa fa-certificate"></i> Mới
+                      <div className="new-template">
+                        <i className="fa fa-certificate"></i> Mới
                       </div>
                     </div>
 
@@ -146,8 +146,8 @@ const ListCV = () => {
                         <span className="preview-button">
                           <EyeFilled /> Xem trước
                         </span>
-                        <span class="create-cv-button">
-                          <i class="fa fa-pencil"></i> Dùng mẫu này
+                        <span className="create-cv-button">
+                          <i className="fa fa-pencil"></i> Dùng mẫu này
                         </span>
                       </div>
                     </div>

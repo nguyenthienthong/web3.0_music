@@ -1,14 +1,13 @@
 import React from "react";
-import Footer from "../layout/footer";
-import Header from "../layout/header";
+import { Route, Routes } from "react-router-dom";
 import AppViews from "./app-views";
-
 const Views = () => {
+  // const isLogin = true;
   return (
     <>
-      <Header />
-      <AppViews />
-      <Footer />
+      <Routes>
+        <Route path="*" element={<AppViews />} />
+      </Routes>
     </>
   );
 };
