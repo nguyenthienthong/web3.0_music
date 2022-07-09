@@ -16,6 +16,27 @@ const Header = () => {
     { id: 9, name: "Diễm Xưa" },
     { id: 10, name: "Tệ Thật, Anh Nhớ Em" },
   ];
+
+  const items = [
+    {
+      key: "post",
+      path: ``,
+      title: "Đăng bài viết",
+      icon: PlusOutlined,
+    },
+    {
+      key: "login",
+      path: `/login`,
+      title: "Đăng nhập",
+      icon: UserOutlined,
+    },
+    {
+      key: "register",
+      path: ``,
+      title: "Đăng ký",
+      icon: UserOutlined,
+    },
+  ];
   return (
     <div className="header">
       <Row>
@@ -57,26 +78,23 @@ const Header = () => {
               backgroundColor: "#00b14f",
             }}
           >
-            <Menu.Item
-              style={{ color: "#fff", fontSize: "1rem", fontWeight: "500" }}
-              icon={<PlusOutlined />}
-              key="post"
-            >
-              Đăng bài viết
-            </Menu.Item>
-            <Menu.Item
-              style={{ color: "#fff", fontSize: "1rem", fontWeight: "500" }}
-              icon={<UserOutlined />}
-              key="login"
-            >
-              Đăng nhập
-            </Menu.Item>
-            <Menu.Item
-              style={{ color: "#fff", fontSize: "1rem", fontWeight: "500" }}
-              key="register"
-            >
-              Đăng ký
-            </Menu.Item>
+            {items.map((e) => {
+              return (
+                <Menu.Item
+                  style={{ color: "#fff", fontSize: "1rem", fontWeight: "500" }}
+                  icon={<e.icon />}
+                  key={e.key}
+                >
+                  <Link
+                    style={{ color: "#fff", textDecoration: "none" }}
+                    key={e.key}
+                    to={e.path}
+                  >
+                    {e.title}
+                  </Link>
+                </Menu.Item>
+              );
+            })}
           </Menu>
         </Col>
       </Row>
