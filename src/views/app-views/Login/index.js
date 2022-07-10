@@ -1,8 +1,6 @@
 import { Button, Checkbox, Form, Input, Col, Row } from 'antd';
 import React from 'react';
 
-import '../../../assets/scss/components/login/index.scss';
-
 function Login() {
     const onFinish = (values) => {
         console.log('Success:', values);
@@ -88,6 +86,7 @@ function Login() {
                             <img
                                 style={{ width: '20px' }}
                                 src={require('../../../assets/images/fb_NoBackground.png')}
+                                alt=""
                             ></img>
                             Facebook
                         </Button>
@@ -95,6 +94,7 @@ function Login() {
                             <img
                                 style={{ width: '20px' }}
                                 src={require('../../../assets/images/gg_NoBackground.png')}
+                                alt=""
                             ></img>
                             Google
                         </Button>
@@ -102,6 +102,7 @@ function Login() {
                             <img
                                 style={{ width: '20px' }}
                                 src={require('../../../assets/images/tt_NoBackground.png')}
+                                alt=""
                             ></img>
                             Twister
                         </Button>
