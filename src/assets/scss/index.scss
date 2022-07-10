@@ -1,9 +1,8 @@
-// @import "./home/home";
-@import "./layout/footer";
-@import "./components/home/home";
+$main-color: #00b14f;
+
 .header {
   padding: 10px 50px;
-  background-color: #00b14f;
+  background-color: $main-color;
 }
 
 .app-views {
@@ -160,3 +159,6 @@ ul {
 .ant-select-selector {
   border-radius: 8px !important;
 }
+@import "./components/login/login";
+@import "./layout/footer";
+@import "./components/home/home";

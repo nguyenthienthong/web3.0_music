@@ -2,6 +2,7 @@ import { Col, Menu, Row, Select } from "antd";
 import { PlusOutlined, UserOutlined } from "@ant-design/icons";
 import React from "react";
 import { Link } from "react-router-dom";
+import { AUTH_BASE } from "../../config/appConfig";
 const { Option } = Select;
 const Header = () => {
   const dataFakeMusic = [
@@ -26,7 +27,7 @@ const Header = () => {
     },
     {
       key: "login",
-      path: `/login`,
+      path: `${AUTH_BASE}/login`,
       title: "Đăng nhập",
       icon: UserOutlined,
     },

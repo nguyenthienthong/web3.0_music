@@ -2,6 +2,8 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AppViews from "./app-views";
 import { BrowserRouter } from "react-router-dom";
+import { AUTH_BASE } from "../config/appConfig";
+import AuthView from "./auth-view";
 // import { AUTH_BASE } from "../config/appConfig";
 
 // const PrivateRouter = ({ children, isAuth, ...props }) => {
@@ -18,7 +20,8 @@ const Views = (props) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="*" element={<AppViews />} />
+        <Route path="*" element={<AppViews />} exact />
+        <Route path={`${AUTH_BASE}/*`} element={<AuthView />} />
       </Routes>
     </BrowserRouter>
   );

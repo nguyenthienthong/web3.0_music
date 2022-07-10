@@ -33,7 +33,7 @@
         .suggest-title {
           line-height: 30px;
           font-weight: 700;
-          color: #00b14f;
+          color: $main-color;
           margin-top: 20px;
           margin-bottom: 10px;
           padding: 0;
@@ -63,7 +63,7 @@
             .new-template {
               border-radius: 16px;
               padding: 4px 8px;
-              background-color: #00b14f;
+              background-color: $main-color;
               position: absolute;
               z-index: 1;
               top: 10px;
@@ -114,7 +114,7 @@
                   border-radius: 30px;
                   width: 80%;
                   margin-bottom: 16px;
-                  background-color: #00b14f;
+                  background-color: $main-color;
                   text-align: center;
                   font-size: 1rem;
                   font-weight: 600;
@@ -146,7 +146,7 @@
               font-size: 1rem;
               span:hover {
                 cursor: pointer;
-                color: #00b14f;
+                color: $main-color;
                 text-decoration: none;
               }
             }
@@ -180,7 +180,7 @@
         font-size: 18px;
         font-weight: bold;
         margin-bottom: 20px;
-        color: #00b14f;
+        color: $main-color;
       }
       ul {
         margin-left: 20px;
