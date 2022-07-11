@@ -1,19 +1,13 @@
-<<<<<<< HEAD
 // @import "./home/home";
 @import './layout/footer';
 @import './components/home/home';
 @import './components/login/login';
 @import './components/search/search';
-.header {
-    padding: 10px 50px;
-    background-color: #00b14f;
-=======
 $main-color: #00b14f;
 
 .header {
   padding: 10px 50px;
   background-color: $main-color;
->>>>>>> dev
 }
 
 .app-views {
