@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "../../../components/app-view/Card";
 function Home() {
     // const topSearch = [
     //     {
@@ -183,7 +184,9 @@ function Home() {
     //     },
     // ];
     return (
-        <></>
+        <>
+            <Card />
+        </>
     );
 }
 
