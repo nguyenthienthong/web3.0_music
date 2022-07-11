@@ -2,7 +2,8 @@ import { Col, Menu, Row, Select } from "antd";
 import { PlusOutlined, UserOutlined } from "@ant-design/icons";
 import React from "react";
 import { Link } from "react-router-dom";
-import { AUTH_BASE } from "../../config/appConfig";
+import { AUTH_BASE } from "../../../config/appConfig";
+import './_header.scss';
 const { Option } = Select;
 const Header = () => {
   const dataFakeMusic = [

@@ -2,7 +2,11 @@ import "./App.css";
 import Views from "./views";
 
 function App() {
-  return <Views />;
+  return (
+    <div className="App">
+      <Views />
+    </div>
+  );
 }
 
 export default App;

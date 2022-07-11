@@ -1,20 +1,20 @@
 import { Layout } from "antd";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import Footer from "../../components/layoutComponent/footer";
-import Header from "../../components/layoutComponent/header";
+import Footer from "../../components/layoutComponent/footer/Footer";
+import Header from "../../components/layoutComponent/header/Header";
+import NotFound from "../notFound/404";
 import Home from "./Home";
-import Search from "./Search";
 const { Content } = Layout;
 const AppViews = () => {
   return (
     <Layout>
       <Header />
-      <Content>
-        <Routes>
-          <Route path="*" element={<Home />}></Route>
-          <Route path="/search" element={<Search></Search>}></Route>
-        </Routes>
+      <Content id="container">
+          <Routes>
+            <Route exact path="/" element={<Home />}></Route>
+            <Route path="*" element={<NotFound/>}></Route>
+          </Routes>
       </Content>
       <Footer />
     </Layout>
