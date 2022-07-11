@@ -1,10 +1,12 @@
 import { Button, Checkbox, Form, Input, Col, Row, notification } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
-import { signInWithGoogle } from "../../../firebase/configFirebase";
+import {
+  signInWithFacebook,
+  signInWithGoogle,
+} from "../../../firebase/configFirebase";
 
-const loginView = () => {
-  console.log("aaaaa");
+const loginView = (props) => {
   const loginGoogle = async () => {
     try {
       const rs = await signInWithGoogle();
@@ -112,7 +114,11 @@ const loginView = () => {
               </Col>
               <Col span={8} className={"right-content"}>
                 <h2>Qua ứng dụng thứ 3</h2>
-                <Button className="btn-third-login" htmlType="submit">
+                <Button
+                  className="btn-third-login"
+                  htmlType="submit"
+                  onClick={signInWithFacebook}
+                >
                   <img
                     style={{ width: "20px" }}
                     src={require("../../../assets/images/fb_NoBackground.png")}
