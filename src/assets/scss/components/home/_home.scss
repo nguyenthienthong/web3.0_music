@@ -1,3 +1,21 @@
+<<<<<<< HEAD
+.home-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.home-content {
+    width: 1100px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.main-content {
+    h1 {
+        text-align: center;
+        color: #00b14f;
+        font-weight: bold;
+        font-size: 25px;
+=======
 .profile {
   padding-top: 50px;
   max-width: 1100px;
@@ -192,17 +210,74 @@
           margin-bottom: 10px;
         }
       }
+>>>>>>> dev
     }
-    .table-of-content {
-      padding: 50px;
-      background-color: #f2f3f4;
+}
+.todayList {
+    padding: 10px;
+    box-shadow: 0px 0px 10px 1px grey;
+}
+.song {
+    border: 1px solid transparent;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    a {
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        font-weight: 500;
     }
-    .div-btn-more-info {
-      text-align: center;
-      margin: 20px 20px;
+    a:hover {
+        color: #00b14f;
     }
-    .btn-more-info {
-      font-size: 15px;
+    span {
+        margin-left: 10px;
+        color: rgb(93, 93, 93);
     }
-  }
+}
+.song:hover {
+    border-radius: 5px;
+    background-color: rgb(198, 198, 198);
+}
+.chord-icon {
+    margin-left: auto;
+    img {
+        width: 20px;
+    }
+}
+.right-sub-content {
+    margin-left: 20px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 5px;
+    margin-top: 20px;
+    text-align: center;
+    padding: 5px;
+    div {
+        margin-top: 3px;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+        font-weight: 500;
+    }
+}
+.top-rate-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    span {
+        margin-left: 10px;
+        color: #dda600;
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+.mt-50 {
+    margin-top: 50px;
+}
+.top-rate-content {
+    margin: 0 auto;
+    display: inline-block;
 }

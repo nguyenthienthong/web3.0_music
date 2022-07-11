@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+.login-container {
+    min-height: 400px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.login-content {
+    width: 1100px;
+    margin-top: 30px;
+    h2 {
+        text-align: center;
+        color: #00b14f;
+        font-weight: bold;
+    }
+    .btn-third-login {
+        border-radius: 50px;
+        margin-left: 90px;
+        width: 150px;
+        height: 35px;
+        margin-bottom: 10px;
+    }
+    .btn-third-login:hover {
+        background-color: #00b14f;
+        color: white;
+    }
+}
+.right-content {
+    border-left: 1px solid black;
+}
+.btn-login {
+    background-color: #00b14f !important;
+    color: white !important;
+}
+.btn-login:hover {
+    background-color: #00a048 !important;
+    color: white !important;
+=======
 .page-login {
   background-image: linear-gradient(to bottom left, #29967d, #10a757);
   height: 100vh;
@@ -71,4 +109,5 @@
   color: #fff;
   border-radius: 10px;
   margin-bottom: 20px;
+>>>>>>> dev
 }
