@@ -5,9 +5,9 @@
   }
   
   .planet {
-    position: absolute;
+    position: relative;
     left: 50%;
-    top: 10em;
+    top: 8em;
     margin-left: -15em;
     width: 30em;
     height: 30em;
@@ -172,9 +172,10 @@
   }
   
   .message {
-    position: absolute;
+    // position: absolute;
+    text-align: center;
     color: #ddd;
-    top: 44em;
+    margin-top: 150px;
     width: 100%;
     text-align: center;
     cursor: default;
