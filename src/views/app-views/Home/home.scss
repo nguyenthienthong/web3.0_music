@@ -1,0 +1,34 @@
+@import "../../../assets/scss/variables";
+.home__container {
+  padding: 25px 40px;
+  background: transparent;
+  background-color: $body-color;
+  &__body {
+    .body__col {
+      text-align: right;
+      &__title {
+        color: $color-white;
+        padding: 0;
+        cursor: pointer;
+      }
+      &__title:hover {
+        text-decoration: underline;
+      }
+
+      .view-all {
+        cursor: pointer;
+        font-size: 1.25rem;
+        line-height: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        -webkit-tap-highlight-color: transparent;
+        font-weight: 700;
+        color: inherit;
+        color: #b3b3b3;
+      }
+      .view-all:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
