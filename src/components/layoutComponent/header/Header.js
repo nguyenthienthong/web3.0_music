@@ -69,7 +69,7 @@ const Header = () => {
 				<li>Đăng bài hát</li>
 				<li>Học hợp âm</li>
 				<li>Hỗ trợ</li>
-				<a href="/login">
+				<a href="/login" style={{ marginRight: "-10px" }}>
 					<UserOutlined />
 				</a>
 				<a href="/">

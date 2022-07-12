@@ -183,7 +183,15 @@ function Home() {
 	//         views: '658',
 	//     },
 	// ];
-	return <>{/* <Card /> */}</>;
+	return (
+		<>
+			<div className="home_container">
+				<div>Nhạc Hot</div>
+				<div>Bảng Xếp Hạng Tuần</div>
+				<div>Bộ Sưu Tập</div>
+			</div>
+		</>
+	);
 }
 
 export default Home;

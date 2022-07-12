@@ -1,7 +1,11 @@
 @import '../../../assets/scss/_variables.scss';
 @import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&display=swap');
 #sidebar {
-    width: 260px;
+    position: sticky;
+    left: 0;
+    top: 0;
+    border: 0;
+    width: 250px;
     height: 100vh;
     display: flex;
     flex-direction: column;
