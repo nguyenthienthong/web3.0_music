@@ -4,6 +4,7 @@
   background: transparent;
   background-color: $body-color;
   &__body {
+    margin-bottom: 30px;
     .body__col {
       text-align: right;
       &__title {
@@ -29,6 +30,15 @@
       .view-all:hover {
         text-decoration: underline;
       }
+    }
+  }
+  .top__user {
+    margin-bottom: 30px;
+    h2 {
+      padding: 0;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 600;
     }
   }
 }

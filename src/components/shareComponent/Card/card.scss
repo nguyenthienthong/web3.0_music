@@ -1,14 +1,17 @@
+.card:hover .card__items__btn__play {
+  opacity: 1 !important;
+  cursor: pointer;
+}
 .card {
-  -webkit-box-flex: 1;
   background: #181818;
-  flex: 1;
   isolation: isolate;
   padding: 16px;
   position: relative;
   transition: background-color 0.3s ease;
-  width: 100%;
+  width: 208.5px;
   border-radius: 4px;
   cursor: pointer;
+  z-index: 9;
   &__items {
     position: relative;
     &__img {
@@ -25,7 +28,7 @@
 
         &__play {
           box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
-          z-index: -99;
+          opacity: 0;
           position: relative;
           border-radius: 500px;
           font-size: inherit;
@@ -70,6 +73,6 @@
   background: #282828;
 }
 
-.card:hover .card__items__btn {
-  z-index: 99;
+.card-home {
+  grid-gap: 24px;
 }
