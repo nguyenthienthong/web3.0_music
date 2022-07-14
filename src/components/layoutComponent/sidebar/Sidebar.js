@@ -14,7 +14,7 @@ const Sidebar = () => {
 			<div id="sidebar">
 				<div id="logo">
 					<img
-						src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_RGB_White-768x230.png"
+						src="https://80-20agency.com/wp-content/uploads/2021/07/spotify-logo-vector.png"
 						alt="logo"
 					/>
 				</div>

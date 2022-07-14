@@ -1,5 +1,5 @@
 import React from "react";
-import Card from "../../../components/app-views/Card";
+// import Card from "../../../components/app-views/Card";
 function Home() {
 	// const topSearch = [
 	//     {
