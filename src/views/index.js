@@ -22,13 +22,13 @@ const switchRouter = (role) => {
 };
 const Views = (props) => {
   const { isLoading, isLogin, message, user } = useSelector(
-    (state) => state.auth
+    (state) => state?.auth
   );
   return (
     <BrowserRouter>
       <Routes>
         <Route path={ADMIN_BASE} element={<AdminView />}></Route>
-        <Route path="/" element={<AppViews />} />
+        <Route path="/*" element={<AppViews />} />
         <Route
           path="*"
           element={<Navigate to={switchRouter(user?.role)} />}
