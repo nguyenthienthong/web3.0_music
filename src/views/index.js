@@ -2,25 +2,37 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AppViews from "./app-views";
 import { BrowserRouter } from "react-router-dom";
-import { AUTH_BASE } from "../config/appConfig";
+import { ADMIN_BASE, AUTH_BASE } from "../config/appConfig";
 import AuthView from "./auth-view";
+import { Navigate } from "react-router";
 // import { AUTH_BASE } from "../config/appConfig";
+import { useDispatch, useSelector } from "react-redux";
+import AdminView from "./admin-view";
 
-// const PrivateRouter = ({ children, isAuth, ...props }) => {
-//   if (isAuth) {
-//     return <Route {...props}>{children}</Route>;
-//   } else {
-//     return <Navigate to={`${AUTH_BASE}/login`} />;
-//   }
-// };
+const switchRouter = (role) => {
+  switch (role) {
+    case "ADMIN":
+      return ADMIN_BASE;
+    case "USER":
+      return "/";
 
+    default:
+      return AUTH_BASE;
+  }
+};
 const Views = (props) => {
-  // const { isLogin, user } = props;
-  console.log(props);
+  const { isLoading, isLogin, message, user } = useSelector(
+    (state) => state?.auth
+  );
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="*" element={<AppViews />} exact />
+        <Route path={ADMIN_BASE} element={<AdminView />}></Route>
+        <Route path="/*" element={<AppViews />} />
+        <Route
+          path="*"
+          element={<Navigate to={switchRouter(user?.role)} />}
+        ></Route>
         <Route path={`${AUTH_BASE}/*`} element={<AuthView />} />
       </Routes>
     </BrowserRouter>

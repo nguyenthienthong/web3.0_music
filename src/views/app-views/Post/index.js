@@ -119,97 +119,14 @@ function Post(props) {
 	};
 
 	return (
-		<div className="post_container">
-			<h2>
-				Đăng bài hát <UploadOutlined />
-			</h2>
-			<div className="wrapper-layout">
-				<div className="form">
-					<Form
-						form={form}
-						layout="vertical"
-						initialValues={{
-							requiredMarkValue: requiredMark,
-						}}
-						onValuesChange={onRequiredTypeChange}
-						requiredMark={requiredMark}
-					>
-						<Form.Item label="Tên bài hát:" required>
-							<Input placeholder="Ví dụ: Cát Bụi" />
-						</Form.Item>
-						<Form.Item label="Lời bài hát và hợp âm:" required>
-							<div className="format">
-								<Button>Định dạng</Button>
-								<Button>Nhập dòng</Button>
-								<Tooltip title="Nâng tông">
-									<Button>
-										<ArrowUpOutlined />
-									</Button>
-								</Tooltip>
-								<Tooltip title="Hạ tông">
-									<Button>
-										<ArrowDownOutlined />
-									</Button>
-								</Tooltip>
-								<Tooltip title="Xóa hết">
-									<Button onClick={showConfirm}>
-										<ClearOutlined />
-									</Button>
-								</Tooltip>
-								<Tooltip title="Chèn hợp âm">
-									<Button onClick={addChords}>[ ]</Button>
-								</Tooltip>
-								<Button>Default Button</Button>
-							</div>
-							<Input.TextArea
-								size={"large"}
-								style={{ height: "400px", minHeight: "400px" }}
-								placeholder="Lời và hợp âm..."
-								value={chords}
-								onChange={setTextInTextArea}
-							/>
-						</Form.Item>
-					</Form>
-					<div className="view-chord">
-						<p>Xem trước</p>
-						<div>
-							{/* <Input.TextArea
-								size={"large"}
-								// style={{ height: "400px", minHeight: "400px" }}
-								placeholder="Xem trước..."
-								value={chordFormat}
-								onChange={setTextInTextArea}
-								disabled
-							/> */}
-							{showLyrics?.map((item) => (
-								<>
-									<Tooltip
-										title={
-											// eslint-disable-next-line jsx-a11y/alt-text
-											<img
-												style={{ maxWidth: "100px", margin: "20px" }}
-												src="https://80-20agency.com/wp-content/uploads/2021/07/spotify-logo-vector.png"
-											/>
-										}
-									>
-										<span
-											style={{
-												color: "red",
-												padding: "0px 4px 0px 4px",
-												verticalAlign: "middle",
-											}}
-										>
-											[{item.arraychords}]
-										</span>
-									</Tooltip>
-
-									<p> {item.arraylyrics} </p>
-								</>
-							))}
-						</div>
-					</div>
-
-					<div className="form-info">
+		<div>
+			<div className="spacer"></div>
+			<div className="post_container">
+				<h2>
+					Đăng bài hát <UploadOutlined />
+				</h2>
+				<div className="wrapper-layout">
+					<div className="form">
 						<Form
 							form={form}
 							layout="vertical"
@@ -219,58 +136,143 @@ function Post(props) {
 							onValuesChange={onRequiredTypeChange}
 							requiredMark={requiredMark}
 						>
-							<div className="info-cre">
-								<Form.Item label="Tác giả:" required>
-									<Input placeholder="Ví dụ: Trịnh Công Sơn..." />
-								</Form.Item>
-								<Form.Item label="Thể loại:" required>
-									<Input placeholder="Ví dụ: Nhạc trữ tình..." />
-								</Form.Item>
-							</div>
-							{dataSinger?.map((item, index) => (
-								<div key={index}>
-									<FormSinger
-										handleDeleteSinger={() => handleDeleteSinger(index)}
-										dataSinger={item}
-									/>
+							<Form.Item label="Tên bài hát:" required>
+								<Input placeholder="Ví dụ: Cát Bụi" />
+							</Form.Item>
+							<Form.Item label="Lời bài hát và hợp âm:" required>
+								<div className="format">
+									<Button>Định dạng</Button>
+									<Button>Nhập dòng</Button>
+									<Tooltip title="Nâng tông">
+										<Button>
+											<ArrowUpOutlined />
+										</Button>
+									</Tooltip>
+									<Tooltip title="Hạ tông">
+										<Button>
+											<ArrowDownOutlined />
+										</Button>
+									</Tooltip>
+									<Tooltip title="Xóa hết">
+										<Button onClick={showConfirm}>
+											<ClearOutlined />
+										</Button>
+									</Tooltip>
+									<Tooltip title="Chèn hợp âm">
+										<Button onClick={addChords}>[ ]</Button>
+									</Tooltip>
+									<Button>Default Button</Button>
 								</div>
-							))}
-							<Form.Item>
-								<Button onClick={handleAddSinger}>Thêm ca sĩ</Button>
+								<Input.TextArea
+									size={"large"}
+									style={{ height: "400px", minHeight: "400px" }}
+									placeholder="Lời và hợp âm..."
+									value={chords}
+									onChange={setTextInTextArea}
+								/>
 							</Form.Item>
 						</Form>
+						<div className="view-chord">
+							<p>Xem trước</p>
+							<div>
+								{/* <Input.TextArea
+								size={"large"}
+								// style={{ height: "400px", minHeight: "400px" }}
+								placeholder="Xem trước..."
+								value={chordFormat}
+								onChange={setTextInTextArea}
+								disabled
+							/> */}
+								{showLyrics?.map((item) => (
+									<>
+										<Tooltip
+											title={
+												// eslint-disable-next-line jsx-a11y/alt-text
+												<img
+													style={{ maxWidth: "100px", margin: "20px" }}
+													src="https://80-20agency.com/wp-content/uploads/2021/07/spotify-logo-vector.png"
+												/>
+											}
+										>
+											<span
+												style={{
+													color: "red",
+													padding: "0px 4px 0px 4px",
+													verticalAlign: "middle",
+												}}
+											>
+												[{item.arraychords}]
+											</span>
+										</Tooltip>
+
+										<p> {item.arraylyrics} </p>
+									</>
+								))}
+							</div>
+						</div>
+
+						<div className="form-info">
+							<Form
+								form={form}
+								layout="vertical"
+								initialValues={{
+									requiredMarkValue: requiredMark,
+								}}
+								onValuesChange={onRequiredTypeChange}
+								requiredMark={requiredMark}
+							>
+								<div className="info-cre">
+									<Form.Item label="Tác giả:" required>
+										<Input placeholder="Ví dụ: Trịnh Công Sơn..." />
+									</Form.Item>
+									<Form.Item label="Thể loại:" required>
+										<Input placeholder="Ví dụ: Nhạc trữ tình..." />
+									</Form.Item>
+								</div>
+								{dataSinger?.map((item, index) => (
+									<div key={index}>
+										<FormSinger
+											handleDeleteSinger={() => handleDeleteSinger(index)}
+											dataSinger={item}
+										/>
+									</div>
+								))}
+								<Form.Item>
+									<Button onClick={handleAddSinger}>Thêm ca sĩ</Button>
+								</Form.Item>
+							</Form>
+						</div>
+
+						<div className="avatar-song">
+							<label>Ảnh nền: </label>
+							<Image
+								src="https://80-20agency.com/wp-content/uploads/2021/07/spotify-logo-vector.png"
+								width={"250px"}
+							/>
+						</div>
+
+						<Button
+							style={{
+								margin: "50px auto",
+								background: "blue",
+								color: "white",
+								borderRadius: "4px",
+							}}
+						>
+							Đăng Bài Hát
+						</Button>
 					</div>
 
-					<div className="avatar-song">
-						<label>Ảnh nền: </label>
-						<Image
-							src="https://80-20agency.com/wp-content/uploads/2021/07/spotify-logo-vector.png"
-							width={"250px"}
-						/>
-					</div>
-
-					<Button
-						style={{
-							margin: "50px auto",
-							background: "blue",
-							color: "white",
-							borderRadius: "4px",
-						}}
-					>
-						Đăng Bài Hát
-					</Button>
-				</div>
-
-				<div className="chords-used">
-					<p style={{ marginBottom: "6px" }}>Quy định chung:</p>
-					<div className="role">
-						{readMore
-							? `Cảm ơn bạn rất nhiều ^_^ ...vì đã đăng hợp âm của bạn lên Hợp Âm
+					<div className="chords-used">
+						<p style={{ marginBottom: "6px" }}>Quy định chung:</p>
+						<div className="role">
+							{readMore
+								? `Cảm ơn bạn rất nhiều ^_^ ...vì đã đăng hợp âm của bạn lên Hợp Âm
 						Chuẩn! Cộng đồng Guitar Việt Nam cần những người như bạn. Để có chất
 						lượng hợp âm tốt hơn, bạn vui lòng... Viết đủ hợp âm, đừng dùng
 						"tương tự", "như trên"... vì nhiều người mới tập chơi họ không
 						rành...`
-							: `Cảm ơn bạn rất nhiều ^_^ ...vì đã đăng hợp âm của bạn lên Hợp Âm
+								: `Cảm ơn bạn rất nhiều ^_^ ...vì đã đăng hợp âm của bạn lên Hợp Âm
 						Chuẩn! Cộng đồng Guitar Việt Nam cần những người như bạn. Để có chất
 						lượng hợp âm tốt hơn, bạn vui lòng... Viết đủ hợp âm, đừng dùng
 						"tương tự", "như trên"... vì nhiều người mới tập chơi họ không
@@ -280,27 +282,28 @@ function Post(props) {
 						"tương tự", "như trên"... vì nhiều người mới tập chơi họ không
 						rành...`}
 
-						<Button
-							style={{
-								border: "none",
-								background: "transparent",
-								outline: "none",
-								boxShadow: "none",
-							}}
-							onClick={handleReadMore}
-						>
-							{readMore ? "Xem thêm" : "Ẩn bớt"}
-						</Button>
-					</div>
-					<p style={{ padding: "7px 0px" }}>Hợp âm sử dụng: </p>
-					<div className="chords-table">
-						<div className="array-chords">
-							<p>Hợp âm: {arrChordsUsed?.map((item) => item + ",")}</p>
+							<Button
+								style={{
+									border: "none",
+									background: "transparent",
+									outline: "none",
+									boxShadow: "none",
+								}}
+								onClick={handleReadMore}
+							>
+								{readMore ? "Xem thêm" : "Ẩn bớt"}
+							</Button>
 						</div>
-						<div className="wrapper-blockchord">
-							{arrChordsUsed?.map((item) => (
-								<BlockChord chord={item} />
-							))}
+						<p style={{ padding: "7px 0px" }}>Hợp âm sử dụng: </p>
+						<div className="chords-table">
+							<div className="array-chords">
+								<p>Hợp âm: {arrChordsUsed.map((item) => item + ",")}</p>
+							</div>
+							<div className="wrapper-blockchord">
+								{arrChordsUsed.map((item) => (
+									<BlockChord chord={item} />
+								))}
+							</div>
 						</div>
 					</div>
 				</div>

@@ -9,6 +9,7 @@ import React, { useState } from "react";
 import { Button, Drawer } from "antd";
 import { AUTH_BASE } from "../../../config/appConfig";
 import "./_header.scss";
+import { Link } from "react-router-dom";
 const Header = () => {
 	// const dataFakeMusic = [
 	// 	{ id: 1, name: "Màu nước mắc" },

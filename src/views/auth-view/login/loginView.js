@@ -1,24 +1,54 @@
 import { Button, Checkbox, Form, Input, Col, Row, notification } from "antd";
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { login } from "../../../redux/actions/authAction";
 import {
   signInWithFacebook,
   signInWithGoogle,
 } from "../../../firebase/configFirebase";
-
-const loginView = (props) => {
+import { Navigate } from "react-router";
+// LoginView.proTypes = {};
+const LoginView = (props) => {
+  const { isLoading, isLogin, message, user } = useSelector(
+    (state) => state.auth
+  );
+  const dispath = useDispatch();
+  if (isLogin) {
+    return <Navigate to="/" />;
+  }
   const loginGoogle = async () => {
     try {
       const rs = await signInWithGoogle();
-      console.log(rs);
       const info = rs.user.providerData[0];
       const data = {
         googleId: info.uid,
         email: info.email,
-        fullname: info.displayName,
+        fullName: info.displayName,
         avatar: info.photoURL,
       };
-      console.log(data);
+      const action = login(data);
+      dispath(action);
+    } catch (error) {
+      notification.error({
+        message: "Login error",
+        description: error.message,
+      });
+    }
+  };
+  const loginFacebook = async () => {
+    try {
+      const rs = await signInWithFacebook();
+      const info = rs.user.providerData[0];
+      console.log();
+      const data = {
+        googleId: info.uid,
+        email: info.email,
+        fullName: info.displayName,
+        avatar: info.photoURL,
+      };
+      const action = login(data);
+      dispath(action);
     } catch (error) {
       notification.error({
         message: "Login error",
@@ -117,7 +147,7 @@ const loginView = (props) => {
                 <Button
                   className="btn-third-login"
                   htmlType="submit"
-                  onClick={signInWithFacebook}
+                  onClick={loginFacebook}
                 >
                   <img
                     style={{ width: "20px" }}
@@ -158,4 +188,4 @@ const loginView = (props) => {
   );
 };
 
-export default loginView;
+export default LoginView;
