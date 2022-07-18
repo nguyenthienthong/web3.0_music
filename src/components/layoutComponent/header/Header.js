@@ -7,6 +7,7 @@ import {
 } from "@ant-design/icons";
 import React, { useState } from "react";
 import { Button, Drawer } from "antd";
+import { AUTH_BASE } from "../../../config/appConfig";
 import "./_header.scss";
 const Header = () => {
 	// const dataFakeMusic = [
@@ -91,7 +92,7 @@ const Header = () => {
 				<li>Đăng bài hát</li>
 				<li>Học hợp âm</li>
 				<li>Hỗ trợ</li>
-				<a href="/login" style={{ marginRight: "-10px" }}>
+				<a href={`${AUTH_BASE}/login`} style={{ marginRight: "-10px" }}>
 					<UserOutlined />
 				</a>
 				<a href="/">

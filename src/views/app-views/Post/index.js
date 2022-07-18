@@ -14,8 +14,15 @@ function Post(props) {
 	const [requiredMark, setRequiredMarkType] = useState("optional");
 	const [chords, setChords] = useState("");
 	const [readMore, setReadMore] = useState(true);
-	const [addCpnSinger, setAddCpnSinger] = useState([<FormSinger />]);
+	const [dataSinger, setDataSinger] = useState([
+		{
+			singser: "",
+			tong: "",
+			link: "",
+		},
+	]);
 	const [chordFormat, setChordsFormat] = useState(chords);
+	const [showLyrics, setShowLyrics] = useState([]);
 	const [arrChordsUsed, setArrChordUsed] = useState([]);
 	const { confirm } = Modal;
 
@@ -40,38 +47,60 @@ function Post(props) {
 	};
 
 	const handleAddSinger = () => {
-		setAddCpnSinger([
-			...addCpnSinger,
-			<FormSinger
-				addCpnSinger={addCpnSinger}
-				setAddCpnSinger={setAddCpnSinger}
-			/>,
-		]);
+		setDataSinger([...dataSinger, { singer: "", tong: "", link: "" }]);
 	};
 
 	useEffect(() => {
-		let format = chords.split("");
-		let arrIndexChords = [];
-		let arrChords = [];
+		let format = chords;
+		let arrchords = [];
+		let arrlyrics = [];
+		let isInChord = false;
+		let l = "",
+			c = "";
 		for (let i = 0; i < format.length; i++) {
-			if (format[i] === "[" && format[i + 1] === "]") {
-				continue;
-			}
+			// dung regex xac dinh khoang trang giua 2 dau ngoac
 			if (format[i] === "[") {
-				for (let j = i; j < format.length; j++) {
-					if (format[j] === "]") {
-						arrIndexChords = [...arrIndexChords, [i, j]];
-						arrChords = [...arrChords, [format.slice(i, j + 1).join("")]];
-						break;
-					}
-				}
+				isInChord = true;
+				console.log(l);
+				arrlyrics.push(l);
+				l = "";
+			} else if (format[i] === "]") {
+				isInChord = false;
+				console.log(c);
+				arrchords.push(c);
+				c = "";
+			} else {
+				if (isInChord) c += format[i];
+				else l += format[i];
 			}
 		}
-		setTimeout(() => {
-			setArrChordUsed(arrChords);
-		}, 1000);
+
+		let newFormat = [];
+
+		for (let i = 0; i < arrchords.length; i++) {
+			newFormat = [
+				...newFormat,
+				{ arraychords: arrchords[i], arraylyrics: arrlyrics[i] },
+			];
+		}
+		setArrChordUsed(arrchords);
+		setShowLyrics(newFormat);
+		setChordsFormat(format);
 	}, [chords]);
 
+	const handleDeleteSinger = (index) => {
+		console.log(index);
+		let newArrCPN = dataSinger.filter();
+		setDataSinger(newArrCPN);
+	};
+
+	useEffect(() => {
+		let newArrChordsUsed = [...new Set(arrChordsUsed)];
+		// console.log(arrChordsUsed);
+		setTimeout(() => {
+			setArrChordUsed(newArrChordsUsed);
+		}, 1000);
+	}, [arrChordsUsed]);
 	// confirm
 	const showConfirm = () => {
 		confirm({
@@ -152,7 +181,31 @@ function Post(props) {
 								onChange={setTextInTextArea}
 								disabled
 							/> */}
-							<p>{chordFormat}</p>
+							{showLyrics?.map((item) => (
+								<>
+									<Tooltip
+										title={
+											// eslint-disable-next-line jsx-a11y/alt-text
+											<img
+												style={{ maxWidth: "100px", margin: "20px" }}
+												src="https://80-20agency.com/wp-content/uploads/2021/07/spotify-logo-vector.png"
+											/>
+										}
+									>
+										<span
+											style={{
+												color: "red",
+												padding: "0px 4px 0px 4px",
+												verticalAlign: "middle",
+											}}
+										>
+											[{item.arraychords}]
+										</span>
+									</Tooltip>
+
+									<p> {item.arraylyrics} </p>
+								</>
+							))}
 						</div>
 					</div>
 
@@ -174,8 +227,13 @@ function Post(props) {
 									<Input placeholder="Ví dụ: Nhạc trữ tình..." />
 								</Form.Item>
 							</div>
-							{addCpnSinger.map((item, index) => (
-								<div key={index}>{item}</div>
+							{dataSinger?.map((item, index) => (
+								<div key={index}>
+									<FormSinger
+										handleDeleteSinger={() => handleDeleteSinger(index)}
+										dataSinger={item}
+									/>
+								</div>
 							))}
 							<Form.Item>
 								<Button onClick={handleAddSinger}>Thêm ca sĩ</Button>
@@ -237,10 +295,10 @@ function Post(props) {
 					<p style={{ padding: "7px 0px" }}>Hợp âm sử dụng: </p>
 					<div className="chords-table">
 						<div className="array-chords">
-							<p>Hợp âm: {arrChordsUsed.map((item) => item + ",")}</p>
+							<p>Hợp âm: {arrChordsUsed?.map((item) => item + ",")}</p>
 						</div>
 						<div className="wrapper-blockchord">
-							{arrChordsUsed.map((item) => (
+							{arrChordsUsed?.map((item) => (
 								<BlockChord chord={item} />
 							))}
 						</div>
@@ -263,16 +321,11 @@ const BlockChord = ({ chord }) => {
 	);
 };
 
-const FormSinger = ({ addCpnSinger, setAddCpnSinger }) => {
-	const handleDeleteSinger = (e) => {
-		setAddCpnSinger(addCpnSinger);
-	};
+const FormSinger = ({ handleDeleteSinger }) => {
 	return (
 		<div className="info-singer">
 			<Form.Item label="Ca sĩ: " required>
-				<span onClick={handleDeleteSinger}>
-					{addCpnSinger?.length > 0 && "( Xóa )"}
-				</span>
+				<span onClick={handleDeleteSinger}>( Xóa )</span>
 				<Input placeholder="Ví dụ: Đan Trường..." />
 			</Form.Item>
 			<Form.Item label="Tông:" required>

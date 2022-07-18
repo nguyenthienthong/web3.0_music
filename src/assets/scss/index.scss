@@ -13,6 +13,7 @@ html {
 
 #main_container {
   display: flex;
+  // padding-top: 60px;
 }
 #container {
   flex: 80%;
@@ -20,7 +21,6 @@ html {
   width: 100vw;
   overflow: auto; 
   margin-left: 60px;
-  padding-top: 60px;
 }
 
 h2 {
