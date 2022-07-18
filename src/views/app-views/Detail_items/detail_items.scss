@@ -143,6 +143,77 @@
     }
   }
 }
+.song_lyric {
+  position: relative;
+  z-index: 1;
+  overflow: auto;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  min-height: 70vh;
+  flex: 1;
+  background: #fff;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 20px;
+  .lyric-page-divider {
+    margin: 0 10px;
+    padding: 5px;
+    background: #e8e8e8;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .pre {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    margin: 0;
+    padding: 15px 0;
+    height: 720px;
+    -webkit-flex-flow: column wrap;
+    flex-flow: column wrap;
+    .song-lyric-note {
+      margin: 0 10px 20px;
+      max-width: 500px;
+      border: 1px dashed #969696;
+      background-color: #fffce0;
+      font-size: 13px;
+      .text_only {
+        padding: 10px 20px;
+      }
+    }
+    .chord_lyric_line {
+      padding: 0 20px;
+      .hopamchuan_chord_inline {
+        position: absolute;
+        display: inline;
+        font-size: 15px;
+        margin-top: -1.5em;
+        .hopamchuan_chord {
+          display: inline-block;
+          margin-right: 5px;
+          color: #f44336;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .inline {
+    .chord_lyric_line {
+      .hopamchuan_chord_inline {
+        position: relative;
+      }
+    }
+  }
+}
+.chord_lyric_line {
+  font-size: 15px;
+  padding: 0 20px;
+  border-right: dashed 2px #ccc;
+  line-height: 1.6em;
+}
 
 @media (min-width: 1280px) {
   .contentSpacing {
