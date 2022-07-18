@@ -37,14 +37,51 @@ const Detail_items = () => {
 
           <div className="content_body__introduce">
             <span className="content_body__introduce__items">Miu Lê</span>
-            <span class="dots"></span>
+            <span className="dots"></span>
             <span className="content_body__introduce__items">Karik</span>
-            <span class="dots"></span>
+            <span className="dots"></span>
             <span className="content_body__introduce__items">
               Châu Đăng Khoa
             </span>
-            <span class="dots"></span>
+            <span className="dots"></span>
             <span className="content_body__introduce__items">2022</span>
+          </div>
+        </div>
+      </div>
+      <div className="song-main-content">
+        <div className=""></div>
+        <div className="song_lyric">
+          <div className="lyric-page-divider">
+            Trang 1<span className="total-page"> / 2</span>
+          </div>
+          <div
+            className="pre inline"
+            style={{ height: "644px", fontSize: "12px", lineHeight: "39.6px" }}
+          >
+            <div className="song-lyric-note">
+              <div className="chord_lyric_line text_only">Capo 3</div>
+            </div>
+
+            <div className="chord_lyric_line">
+              <span className="hopamchuan_chord_inline">
+                <Tooltip placement="topLeft" title="Hình ảnh">
+                  <span className="hopamchuan_chord">[Em]</span>
+                </Tooltip>
+              </span>
+              <span className="hopamchuan_lyric">Anh rất tốt thế </span>
+              <span className="hopamchuan_chord_inline">
+                <Tooltip placement="topLeft" title="hình ảnh">
+                  <span className="hopamchuan_chord">[D]</span>
+                </Tooltip>
+              </span>
+              <span className="hopamchuan_lyric">nhưng thà đừng gặp vui </span>
+              <span className="hopamchuan_chord_inline">
+                <Tooltip placement="topLeft" title="hình ảnh">
+                  <span className="hopamchuan_chord">[C]</span>
+                </Tooltip>
+              </span>
+              <span className="hopamchuan_lyric"> hơn</span>
+            </div>
           </div>
         </div>
       </div>

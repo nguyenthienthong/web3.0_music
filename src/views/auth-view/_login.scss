@@ -1,6 +1,6 @@
 @import "../../assets/scss/_variables.scss";
 .page-login {
-  background-image: linear-gradient(to bottom left, #29967d, #10a757);
+  background-image: linear-gradient(to bottom left, #121212, #5f6160);
   height: 100vh;
   display: flex;
   align-content: center;
@@ -66,8 +66,8 @@
 .btn-back {
   background-image: linear-gradient(
     to bottom left,
-    #29967d,
-    #10a757
+    #121212,
+    #5f6160
   ) !important;
   color: #fff;
   border-radius: 10px;

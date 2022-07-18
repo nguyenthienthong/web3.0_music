@@ -1,9 +1,9 @@
-import './_login.scss';
+import "./_login.scss";
 import { AUTH_BASE } from "../../config/appConfig";
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { Route, Routes } from "react-router-dom";
-import LoginView from "./login/loginView";
+import LoginView from "./login/LoginView";
 const AuthView = () => {
   return (
     <Routes>

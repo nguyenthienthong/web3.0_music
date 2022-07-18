@@ -12,11 +12,12 @@ export function* login() {
   yield takeEvery(LOGIN, function* ({ data }) {
     try {
       const res = yield call(authService.loginGoogle, data);
-      console.log(res);
+      console.log(authService);
       if (res.status === "Failed") {
         throw new Error(res.message);
       }
-      localStorage.setItem(AUTH_TOKEN, res.data.token);
+      console.log(res);
+      localStorage.setItem(AUTH_TOKEN, res.data.tokens.accessToken);
       localStorage.setItem(PROFILE, JSON.stringify(res.data.user));
       yield put(getDataDone());
       yield put(authentication(res.data.user));
