@@ -6,7 +6,8 @@ $form-post : rgb(0, 0, 0);
 .post_container {
     background: $background-post;
     width: 100%;
-    padding: 20px;
+    padding: 0px 20px;
+    margin-top: 70px;
     @media screen and (max-width: 1300px){
         overflow: auto;
         width: 1200px;
@@ -138,12 +139,15 @@ $form-post : rgb(0, 0, 0);
                 text-align: center;
             }
             div {
+                border: 2px solid black;
+                box-shadow: 1px 1px 1px rgba(28, 85, 160, 0.414);
                 height: 300px;
+                width: 100%;
                 background-color: rgb(199, 199, 199);
                 display: flex;
-                textArea {
-                    resize: none;
-                }
+                justify-content: flex-start;
+                align-items: flex-start;
+                padding: 5px;
             }
         }
         .avatar-song {
