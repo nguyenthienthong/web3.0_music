@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { Avatar, Button, Drawer, Dropdown, Image, Menu } from "antd";
 import "./_header.scss";
 import { AUTH_BASE } from "../../../config/appConfig";
+import "./_header.scss";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getSortName } from "../../../utils/utils";
