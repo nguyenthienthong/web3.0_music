@@ -2,7 +2,7 @@ import React from "react";
 import { Route, Routes } from "react-router-dom";
 import AppViews from "./app-views";
 import { BrowserRouter } from "react-router-dom";
-import { ADMIN_BASE, AUTH_BASE } from "../config/appConfig";
+import { ADMIN_BASE, APP_BASE, AUTH_BASE } from "../config/appConfig";
 import AuthView from "./auth-view";
 import { Navigate } from "react-router";
 // import { AUTH_BASE } from "../config/appConfig";
@@ -14,10 +14,10 @@ const switchRouter = (role) => {
     case "ADMIN":
       return ADMIN_BASE;
     case "USER":
-      return "/";
+      return APP_BASE;
 
     default:
-      return AUTH_BASE;
+      return APP_BASE;
   }
 };
 const Views = (props) => {
@@ -27,13 +27,15 @@ const Views = (props) => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path={ADMIN_BASE} element={<AdminView />}></Route>
-        <Route path="/*" element={<AppViews />} />
         <Route
           path="*"
           element={<Navigate to={switchRouter(user?.role)} />}
         ></Route>
+
+        <Route path={`${ADMIN_BASE}/*`} element={<AdminView />}></Route>
+
         <Route path={`${AUTH_BASE}/*`} element={<AuthView />} />
+        <Route path={`${APP_BASE}/*`} element={<AppViews />} />
       </Routes>
     </BrowserRouter>
   );

@@ -1,6 +1,6 @@
 import { Button, Checkbox, Form, Input, Col, Row, notification } from "antd";
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { login } from "../../../redux/actions/authAction";
 import {
@@ -10,13 +10,8 @@ import {
 import { Navigate } from "react-router";
 // LoginView.proTypes = {};
 const LoginView = (props) => {
-  const { isLoading, isLogin, message, user } = useSelector(
-    (state) => state.auth
-  );
   const dispath = useDispatch();
-  if (isLogin) {
-    return <Navigate to="/" />;
-  }
+
   const loginGoogle = async () => {
     try {
       const rs = await signInWithGoogle();

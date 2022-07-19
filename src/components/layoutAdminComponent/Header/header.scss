@@ -1,0 +1,7 @@
+@import "../../../assets/scss/variables";
+.site-layout-header {
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  background-color: #fff !important;
+}
