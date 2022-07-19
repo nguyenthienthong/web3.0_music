@@ -48,6 +48,16 @@ const Detail_items = () => {
           </div>
         </div>
       </div>
+      <div className="version-bar">
+        <div className="version-bar-info">
+          <h4>Chọn phiên bản</h4>
+          <div className="use_post">Chau Lai</div>
+        </div>
+        <div className="statistical_rank">
+          <div className="contribute-vote"></div>
+        </div>
+      </div>
+
       <div className="song-main-content">
         <div className=""></div>
         <div className="song_lyric">

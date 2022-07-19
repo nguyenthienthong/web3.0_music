@@ -1,15 +1,19 @@
 import {
   CloseOutlined,
+  LogoutOutlined,
   MenuOutlined,
   SearchOutlined,
   UserOutlined,
   WalletOutlined,
 } from "@ant-design/icons";
 import React, { useState } from "react";
-import { Button, Drawer } from "antd";
+import { Avatar, Button, Drawer, Dropdown, Image, Menu } from "antd";
 import "./_header.scss";
 import { AUTH_BASE } from "../../../config/appConfig";
 import { Link } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
+import { getSortName } from "../../../utils/utils";
+import { logout } from "../../../redux/actions/authAction";
 const Header = () => {
   // const dataFakeMusic = [
   // 	{ id: 1, name: "Màu nước mắc" },
@@ -44,15 +48,34 @@ const Header = () => {
   // 		icon: UserOutlined,
   // 	},
   // ];
+  const { isLoading, isLogin, message, user } = useSelector(
+    (state) => state.auth
+  );
+  const dispath = useDispatch();
   const [visible, setVisible] = useState(false);
 
   const showDrawer = () => {
     setVisible(true);
   };
 
+  const handleLogout = () => {
+    const action = logout();
+    dispath(action);
+  };
+
   const onClose = () => {
     setVisible(false);
   };
+  const menu = (
+    <Menu className="p-2">
+      <Menu.Item key="my-profile" icon={<UserOutlined />}>
+        <Link to="/">My Profile</Link>
+      </Menu.Item>
+      <Menu.Item key="logout" icon={<LogoutOutlined />} onClick={handleLogout}>
+        Logout
+      </Menu.Item>
+    </Menu>
+  );
   return (
     <div className="header">
       <div className="input_search">
@@ -88,20 +111,42 @@ const Header = () => {
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Drawer>
-      <div className="button_header">
-        <li>Khám phá</li>
-        <li>
-          <Link to={`/post`}>Đăng bài hát</Link>
-        </li>
-        <li>Học hợp âm</li>
-        <li>Hỗ trợ</li>
-        <Link to={`${AUTH_BASE}/login`} style={{ marginRight: "-10px" }}>
-          <UserOutlined />
-        </Link>
-        <a href="/">
-          <WalletOutlined />
-        </a>
-      </div>
+      {isLogin ? (
+        <div className="button_header">
+          <li>Khám phá</li>
+          <li>
+            <Link to={`/post`}>Đăng bài hát</Link>
+          </li>
+          <li>Học hợp âm</li>
+          <li>Hỗ trợ</li>
+          <Dropdown overlay={menu} trigger={["click"]}>
+            <Button
+              type="text"
+              style={{ height: "max-content" }}
+              icon={
+                <Avatar src={user?.avatarUrl} size="default">
+                  {getSortName(user?.fullname)}
+                </Avatar>
+              }
+            ></Button>
+          </Dropdown>
+        </div>
+      ) : (
+        <div className="button_header">
+          <li>Khám phá</li>
+          <li>
+            <Link to={`/post`}>Đăng bài hát</Link>
+          </li>
+          <li>Học hợp âm</li>
+          <li>Hỗ trợ</li>
+          <Link to={`${AUTH_BASE}/login`} style={{ marginRight: "-10px" }}>
+            <UserOutlined />
+          </Link>
+          <a href="/">
+            <WalletOutlined />
+          </a>
+        </div>
+      )}
     </div>
   );
 };
