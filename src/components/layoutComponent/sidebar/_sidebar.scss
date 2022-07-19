@@ -1,0 +1,80 @@
+@import '../../../assets/scss/_variables.scss';
+@import url('https://fonts.googleapis.com/css2?family=Changa:wght@600&display=swap');
+#sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: $width-Sidebar;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #000;
+    z-index: 1100;
+    overflow: hidden;
+    min-width: 60px;
+    max-width: 250px;
+    transition: all 0.5s;
+    @media screen and (max-width: 500px) {
+        resize: none;
+        width: 60px;
+    }
+
+    &:hover {
+        width: 250px;
+
+    }
+    &:hover .header{
+        margin-left: 200px;
+    }
+    & > #logo {
+        // padding: 20px;
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        img  {
+            max-width: 40px;
+            margin: 10px;
+        }
+    }
+    & > ul {
+        width: 100%;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        margin-top: 20px;
+        li > a {
+            display: flex;
+            padding: 0px 20px;
+            align-items: center;
+            text-decoration: none;
+            align-content: center;
+            line-height: 100%;
+            margin: auto;
+            cursor: pointer;
+            &:hover > p {
+                color: rgba($color: #fff, $alpha: 1);
+            }
+
+            p {
+                color: rgba($color: #fff, $alpha: 0.7);
+                font-size: 1.6rem;
+                font-family: 'Changa', sans-serif;
+            }
+            p:nth-child(1) {   
+                font-size: 1.9rem;
+                padding-right: 20px;
+            }
+            p:nth-child(2) {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+
+    
+}

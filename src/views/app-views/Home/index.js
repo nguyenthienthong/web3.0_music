@@ -1,226 +1,198 @@
-import { Row } from "antd";
+import { Col, Row } from "antd";
 import React from "react";
-import ListCV from "./ListCV";
-import NavSearch from "./NavSearch";
-const Home = () => {
-  return (
-    <>
-      <Row className="profile">
-        <NavSearch />
-        <ListCV />
-      </Row>
-      <div className="template-guide">
-        <div className="container">
-          <div className="box-text">
-            <h2>
-              Tạo CV online miễn phí với các mẫu CV được thiết kế sẵn chỉ với 3
-              bước:
-            </h2>
-            <ul>
-              <li>
-                Bước 1: Chọn ngôn ngữ khác / thay đổi tiêu chí gợi ý mẫu CV để
-                TopCV gợi ý các mẫu CV phù hợp với nhu cầu của bạn.
-              </li>
-              <li>
-                Bước 2: Chọn mẫu CV miễn phí mà bạn ưng ý nhất và tiến hành viết
-                CV.
-              </li>
-              <li>
-                Bước 3: Sau khi hoàn thiện viết CV, bạn tiến hành lưu CV lại tải
-                CV về dưới dạng PDF hoặc sử dụng link CV online để gửi cho nhà
-                tuyển dụng.
-              </li>
-            </ul>
-          </div>
-          <div className="box-text">
-            <h2>Tại sao nên tạo CV online trên TopCV</h2>
-            <ul>
-              <li>
-                Nhiều mẫu CV đẹp, miễn phí, phù hợp nhu cầu ứng tuyển các vị trí
-                khác nhau.
-              </li>
-              <li>
-                Tương tác trực quan, dễ dàng chỉnh sửa thông tin, tạo CV online
-                nhanh chóng trong vòng 5 phút.
-              </li>
-              <li>
-                Nhận gợi ý cách viết CV phù hợp cùng các mẫu CV tham khảo chi
-                tiết theo ngành nghề.
-              </li>
-              <li>Mẫu CV đồng bộ với các mẫu thư xin việc (Cover Letter).</li>
-              <li>Các mẫu CV hỗ trợ đa ngôn ngữ: tiếng Anh / Nhật / Việt.</li>
-            </ul>
-          </div>
-          <nav className="table-of-content">
-            <p style={{ marginBottom: "15px", fontSize: "20px" }}>Mục lục:</p>
-            <ul className="none-list-style">
-              <li>
-                <h2 className="mp-0">
-                  <span className="table-content h4 big-item">
-                    1. CV là gì? Những điều bạn cần lưu ý khi viết CV xin việc
-                  </span>
-                </h2>
-              </li>
-              <li>
-                <h3 className="mpc-0">
-                  <span className="table-content h4 small-item">
-                    1.1. CV là gì?
-                  </span>
-                </h3>
-              </li>
-              <li>
-                <h3 className="mpc-0">
-                  <span className="table-content h4 small-item">
-                    1.2. CV và sơ yếu lý lịch khác nhau chỗ nào?
-                  </span>
-                </h3>
-              </li>
-              <li>
-                <h3 className="mpc-0">
-                  <span className="table-content h4 small-item">
-                    1.3. CV có những dạng nào?
-                  </span>
-                </h3>
-              </li>
-              <li>
-                <h3 className="mpc-0">
-                  <span className="table-content h4 small-item">
-                    1.4. CV gồm những gì?
-                  </span>
-                </h3>
-              </li>
-              <li>
-                <h2 className="mp-0">
-                  <span className="table-content h4 big-item">
-                    2. Cách viết CV xin việc chuẩn
-                  </span>
-                </h2>
-              </li>
-              <li>
-                <h3 className="mpc-0">
-                  <span className="table-content h4 small-item">
-                    2.1. Cách viết CV xin việc tiếng Anh chuẩn
-                  </span>
-                </h3>
-              </li>
-              <li>
-                <h3 className="mpc-0">
-                  <span className="table-content h4 small-item">
-                    2.2. Cách viết CV xin việc tiếng Nhật chuẩn
-                  </span>
-                </h3>
-              </li>
-              <li>
-                <h3 className="mpc-0">
-                  <span className="table-content h4 small-item">
-                    2.3. Cách viết CV xin việc tiếng Trung chuẩn
-                  </span>
-                </h3>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  2.4. Cách viết CV ấn tượng cho sinh viên mới ra trường
-                </span>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  2.5. Cách viết CV xin thực tập cho sinh viên
-                </span>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  2.6. Cách viết CV xin học bổng du học chuẩn
-                </span>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  2.7. Cách viết CV cho sinh viên chưa tốt nghiệp
-                </span>
-              </li>
-              <li>
-                <h2 className="mp-0">
-                  <span className="table-content h4 big-item">
-                    3. CV theo ngành nghề phổ biến
-                  </span>
-                </h2>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  3.1. Mẫu CV xin việc kế toán
-                </span>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  3.2. Mẫu CV xin việc IT
-                </span>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  3.3. Mẫu CV xin việc nhân viên kinh doanh
-                </span>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  3.4. Mẫu CV xin việc chăm sóc khách hàng
-                </span>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  3.5. Mẫu CV xin việc marketing
-                </span>
-              </li>
-              <li>
-                <span className="table-content h4 small-item">
-                  3.6. Mẫu CV xin việc hành chính nhân sự
-                </span>
-              </li>
-              <li>
-                <h2 className="mp-0">
-                  <span className="table-content h4 big-item">
-                    4. Cách tạo mẫu CV xin việc đơn giản
-                  </span>
-                </h2>
-              </li>
-              <li>
-                <h2 className="mp-0">
-                  <span className="table-content h4 big-item">
-                    5. Một số lưu ý khi viết CV bạn nên nắm rõ
-                  </span>
-                </h2>
-              </li>
-              <li>
-                <h2 className="mp-0">
-                  <span className="table-content h4 big-item">
-                    6. Cách gửi CV qua mail
-                  </span>
-                </h2>
-              </li>
-            </ul>
-          </nav>
-          <div>
-            <p className="c2 c29">
-              <span className="c11 c43"></span>
-            </p>
-          </div>
-          <p className="c7">
-            <span className="c26 c9">
-              Chúng ta đều biết rằng CV là một phần không thể thiếu trong quá
-              trình xin việc của ứng viên. Vậy chính xác CV là gì? CV gồm những
-              phần nào? Đâu là cách viết CV xin việc chuẩn nhất? Trong bài viết
-              dưới đây TopCV sẽ đem tới những thông tin hữu ích về CV xin việc
-              cũng như những lưu ý cần nắm rõ khi viết CV xin việc.
-            </span>
-          </p>
+import Card from "../../../components/shareComponent/Card";
+import "./home.scss";
 
-          <div className="div-btn-more-info">
-            <button className="btn btn-info btn-more-info" id="btn-more-info">
-              Xem thêm
-            </button>
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+function Home() {
+	let data = [
+		{
+			id: 17440,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002b6315b5c317683ccebb43d36",
+			price: 0.04,
+			name: "Mãi Mãi Phạm Duy",
+			content: "Tôi yêu tiếng nước tôi, từ khi mới ra đời...",
+			views: 9,
+		},
+		{
+			id: 17441,
+			urlImage:
+				"https://i.scdn.co/image/ab67616d00001e029085710299027029d3602e57",
+			price: 0.04,
+			name: "B RAY x SOFIA & CHÂU ĐĂNG KHOA | THIÊU THÂN",
+			content: "Cùng B-ray với sản phẩm mới nhất với thiêu thân...",
+			views: 9,
+		},
+		{
+			id: 17442,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 174423,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 174421,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 17445,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 17448,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 1744211,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+	];
+
+	let topUser = [
+		{
+			id: 17440,
+			urlImage:
+				"	https://i.scdn.co/image/ab6761610000f178ec05963eab63676a539fef13",
+			price: 0.04,
+			name: "Camila Cabello",
+			content: "Nghệ sĩ",
+			views: 9,
+		},
+		{
+			id: 17441,
+			urlImage:
+				"https://i.scdn.co/image/ab67616d00001e029085710299027029d3602e57",
+			price: 0.04,
+			name: "B RAY x SOFIA & CHÂU ĐĂNG KHOA | THIÊU THÂN",
+			content: "Cùng B-ray với sản phẩm mới nhất với thiêu thân...",
+			views: 9,
+		},
+		{
+			id: 17442,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 174423,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 174421,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 17445,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 17448,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+		{
+			id: 1744211,
+			urlImage:
+				"https://i.scdn.co/image/ab67706f00000002c61f44e81529d986f2b3526d",
+			price: 0.04,
+			name: "Hot  hit Vietnam",
+			content:
+				"Cùng tôn vinh tài năng và âm nhạc của những nữ nghệ sĩ Việt. Ảnh bìa: Phương Ly",
+			views: 9,
+		},
+	];
+	return (
+		<div style={{ backgroundColor: "#121212" }}>
+			<div className="spacer"></div>
+			<div className="home__container">
+				<div className="top__user">
+					<h2>Top những bài hát hay nhất</h2>
+					<Card item={topUser} />
+				</div>
+				<Row className="home__container__body">
+					<Col className="body__col" span={20}>
+						<h2 className="body__col__title">
+							Lựa chọn của lùa gà (ngẫu nhiên)
+						</h2>
+					</Col>
+					<Col className="body__col" span={4}>
+						<span className="view-all">Xem tất cả</span>
+					</Col>
+					<Card item={data} />
+				</Row>
+
+				<div className="top__user">
+					<h2>Bảng xếp hạng người đăng nhiều views nhất tuần</h2>
+
+					<Card item={topUser} border={"50%"} />
+				</div>
+			</div>
+		</div>
+	);
+}
 
 export default Home;
