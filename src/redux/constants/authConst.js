@@ -2,6 +2,8 @@ export const PROFILE = "user";
 
 export const LOGIN = "LOGIN";
 
+export const LOGINGG = "LOGINGG";
+
 export const ISGETDATA = "ISGETDATA";
 
 export const ISGETDATADONE = "GETDATADONE";

@@ -1,17 +1,27 @@
-import { Button, Checkbox, Form, Input, Col, Row, notification } from "antd";
+import {
+  Button,
+  Checkbox,
+  Form,
+  Input,
+  Col,
+  Row,
+  notification,
+  Spin,
+} from "antd";
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { login } from "../../../redux/actions/authAction";
+import { loginGg, login } from "../../../redux/actions/authAction";
 import {
   signInWithFacebook,
   signInWithGoogle,
 } from "../../../firebase/configFirebase";
 import { Navigate } from "react-router";
+import { FacebookOutlined, GoogleOutlined } from "@ant-design/icons";
 // LoginView.proTypes = {};
 const LoginView = (props) => {
-  const dispath = useDispatch();
-
+  const [form] = Form.useForm();
+  const dispatch = useDispatch();
   const loginGoogle = async () => {
     try {
       const rs = await signInWithGoogle();
@@ -22,8 +32,9 @@ const LoginView = (props) => {
         fullName: info.displayName,
         avatar: info.photoURL,
       };
-      const action = login(data);
-      dispath(action);
+      const action = loginGg(data);
+      dispatch(action);
+      console.log(dispatch(action));
     } catch (error) {
       notification.error({
         message: "Login error",
@@ -42,8 +53,8 @@ const LoginView = (props) => {
         fullName: info.displayName,
         avatar: info.photoURL,
       };
-      const action = login(data);
-      dispath(action);
+      const action = loginGg(data);
+      dispatch(action);
     } catch (error) {
       notification.error({
         message: "Login error",
@@ -51,134 +62,95 @@ const LoginView = (props) => {
       });
     }
   };
-  const onFinish = (values) => {
-    console.log("Success:", values);
+  const onFinish = async (values) => {
+    try {
+      const data = {
+        account: values.username,
+        password: values.password,
+      };
+      const action = login(data);
+      dispatch(action);
+      console.log(dispatch(action));
+    } catch (error) {
+      notification.error({
+        message: "Login error",
+        description: error.message,
+      });
+    }
   };
 
   const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
   return (
-    <div className="page-login">
-      <div className="form__login">
-        <h1 className="title-color title__welcome">Welcome to Web 3.0 music</h1>
-        <h1 className="title-color title__content">Music login form</h1>
-        <div className="login-container">
-          <div className="login-content">
-            <Row>
-              <Col span={16}>
-                <h2>Đăng nhập qua tài khoản</h2>
-                <Form
-                  className="form"
-                  name="basic"
-                  labelCol={{
-                    span: 9,
-                  }}
-                  wrapperCol={{
-                    span: 8,
-                  }}
-                  initialValues={{
-                    remember: true,
-                  }}
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
-                  autoComplete="off"
-                >
-                  <Form.Item
-                    label="Tên đăng nhập"
-                    name="username"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Hãy nhập tên đăng nhập!",
-                      },
-                    ]}
-                  >
-                    <Input />
-                  </Form.Item>
-
-                  <Form.Item
-                    label="Mật khẩu"
-                    name="password"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Hãy nhập mật khẩu!",
-                      },
-                    ]}
-                  >
-                    <Input.Password />
-                  </Form.Item>
-
-                  <Form.Item
-                    name="remember"
-                    valuePropName="unchecked"
-                    wrapperCol={{
-                      offset: 9,
-                      span: 16,
-                    }}
-                  >
-                    <Checkbox>Lưu mật khẩu</Checkbox>
-                  </Form.Item>
-
-                  <Form.Item
-                    wrapperCol={{
-                      offset: 9,
-                      span: 16,
-                    }}
-                  >
-                    <Button className="btn-login" htmlType="submit">
-                      Đăng nhập
-                    </Button>
-
-                    <Button className="btn-register" htmlType="submit">
-                      Đăng ký
-                    </Button>
-                  </Form.Item>
-                </Form>
-              </Col>
-              <Col span={8} className={"right-content"}>
-                <h2>Qua ứng dụng thứ 3</h2>
-                <Button
-                  className="btn-third-login"
-                  htmlType="submit"
-                  onClick={loginFacebook}
-                >
-                  <img
-                    style={{ width: "20px" }}
-                    src={require("../../../assets/images/fb_NoBackground.png")}
-                    alt=""
-                  ></img>
-                  Facebook
-                </Button>
-                <Button
-                  className="btn-third-login"
-                  onClick={loginGoogle}
-                  htmlType="submit"
-                >
-                  <img
-                    style={{ width: "20px" }}
-                    src={require("../../../assets/images/gg_NoBackground.png")}
-                    alt=""
-                  ></img>
-                  Google
-                </Button>
-                <Button className="btn-third-login" htmlType="submit">
-                  <img
-                    style={{ width: "20px" }}
-                    src={require("../../../assets/images/tt_NoBackground.png")}
-                    alt=""
-                  ></img>
-                  Twister
-                </Button>
-              </Col>
-            </Row>
-          </div>
+    <div className="login">
+      <Link to={`/app`}>
+        <div className="img_logo">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/252px-Spotify_logo_without_text.svg.png?20160123212544"
+            alt=""
+          ></img>
         </div>
-        <Link to="/">
-          <button className="btn btn-back">Go back home</button>
-        </Link>
-      </div>
+      </Link>
+      <h2>Login</h2>
+      <Form
+        form={form}
+        initialValues={{
+          remember: true,
+        }}
+        onFinish={onFinish}
+        onFinishFailed={onFinishFailed}
+        autoComplete="off"
+        className="form_login"
+      >
+        <Form.Item
+          name="username"
+          rules={[
+            {
+              required: true,
+              message: "Hãy nhập tên đăng nhập!",
+            },
+          ]}
+        >
+          <Input placeholder="Username" />
+        </Form.Item>
+        <Form.Item
+          name="password"
+          rules={[
+            {
+              required: true,
+              message: "Hãy nhập mật khẩu!",
+            },
+          ]}
+        >
+          <Input.Password placeholder="Password" />
+        </Form.Item>
+        <Form.Item name="remember" valuePropName="checked">
+          <Checkbox>Remember me</Checkbox>
+          <p className="forgot_password">
+            <Link to={`/`}>Quên mật khẩu?</Link>
+          </p>
+        </Form.Item>
+
+        <Form.Item>
+          <Button className="btn--submit" htmlType="submit">
+            Submit
+          </Button>
+        </Form.Item>
+        <div className="another_login">
+          <Button className="btn--facebook btn_signup">
+            <FacebookOutlined />
+            Facebook
+          </Button>
+          <Button onClick={loginGoogle} className="btn--google btn_signup">
+            <GoogleOutlined />
+            Google
+          </Button>
+        </div>
+        <p className="question_signup">
+          Don't have account <Link to={`/auth/register`}>Signup Now?</Link>
+        </p>
+      </Form>
     </div>
   );
 };
