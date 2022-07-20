@@ -8,6 +8,7 @@ import {
   LOGOUT,
   PROFILE,
   SHOWMESSAGE,
+  LOGINGG,
 } from "../constants/authConst";
 
 const initState = {
@@ -26,6 +27,9 @@ const initState = {
 const auth = (state = initState, payload) => {
   switch (payload.type) {
     case LOGIN:
+      return { ...state, isLoading: true };
+
+    case LOGINGG:
       return { ...state, isLoading: true };
 
     case ISGETDATA:
@@ -48,12 +52,14 @@ const auth = (state = initState, payload) => {
         user: payload.data,
       };
     }
+
     case SHOWMESSAGE: {
       return {
         ...state,
         message: payload.data,
       };
     }
+
     case HIDDENTMESSAGE: {
       return {
         ...state,
