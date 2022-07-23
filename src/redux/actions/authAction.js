@@ -7,6 +7,8 @@ import {
   AUTHENTICATE,
   LOGOUT,
   LOGINGG,
+  BUY_PRODUCT,
+  DELETE_PRODUCT,
 } from "../constants/authConst";
 
 export const loginGg = (user) => {
@@ -56,5 +58,26 @@ export const hiddentMessage = () => {
 export const logout = () => {
   return {
     type: LOGOUT,
+  };
+};
+
+export const addToCart = (product) => {
+  return {
+    type: BUY_PRODUCT,
+    data: product,
+  };
+};
+
+export const removeFromCart = (product) => {
+  return {
+    type: DELETE_PRODUCT,
+    data: product,
+  };
+};
+
+export const adjustQty = (product) => {
+  return {
+    type: DELETE_PRODUCT,
+    data: product,
   };
 };

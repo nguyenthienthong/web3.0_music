@@ -15,3 +15,7 @@ export const AUTHENTICATE = "AUTHENTICATE";
 export const SHOWMESSAGE = "SHOWMESSAGE";
 
 export const HIDDENTMESSAGE = "HIDDENTMESSAGE";
+
+export const BUY_PRODUCT = "BUY_PRODUCT";
+
+export const DELETE_PRODUCT = "DELETE_PRODUCT";

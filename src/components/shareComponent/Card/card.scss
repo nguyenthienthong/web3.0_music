@@ -2,6 +2,11 @@
   opacity: 1 !important;
   cursor: pointer;
 }
+
+.card:hover .card__items__btn__shop {
+  opacity: 1 !important;
+  cursor: pointer;
+}
 .card {
   background: #181818;
   isolation: isolate;
@@ -22,11 +27,7 @@
         width: 100%;
       }
       .card__items__btn {
-        position: absolute;
-        right: 8px;
-        top: 110px;
-
-        &__play {
+        &__shop {
           box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
           opacity: 0;
           position: relative;
@@ -36,11 +37,36 @@
           block-size: 48px;
           border: none;
           background-color: #1ed760;
+          position: absolute;
+          right: 8px;
+          top: 110px;
           span {
             position: absolute;
             font-size: 30px;
             top: 4px;
             left: 5px;
+            color: #181818;
+          }
+        }
+        &__play {
+          box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+          opacity: 0;
+          position: relative;
+          border-radius: 500px;
+          font-size: inherit;
+          inline-size: 48px;
+          block-size: 48px;
+          border: none;
+          background-color: #d7771e;
+          position: absolute;
+          left: 8px;
+          top: 110px;
+          span {
+            position: absolute;
+            font-size: 30px;
+            top: 4px;
+            left: 4px;
+            color: #181818;
           }
         }
       }

@@ -1,6 +1,6 @@
 import { AUTH_TOKEN } from "../../config/appConfig";
 import authService from "../../services/authService";
-import { all, call, fork, put, takeEvery } from "redux-saga/effects";
+import { call, fork, put, takeEvery } from "redux-saga/effects";
 import {
   authentication,
   getDataDone,
@@ -16,7 +16,6 @@ export function* loginGg() {
       if (res.status === "Failed") {
         throw new Error(res.message);
       }
-      console.log(res);
       localStorage.setItem(AUTH_TOKEN, res.data.tokens.accessToken);
       localStorage.setItem(PROFILE, JSON.stringify(res.data.user));
       yield put(getDataDone());
@@ -35,7 +34,6 @@ export function* login() {
       if (res.status === "Failed") {
         throw new Error(res.message);
       }
-      console.log(res);
       localStorage.setItem(AUTH_TOKEN, res.data.tokens.accessToken);
       localStorage.setItem(PROFILE, JSON.stringify(res.data.user));
       yield put(getDataDone());

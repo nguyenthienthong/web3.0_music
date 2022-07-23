@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { Avatar, Button, Drawer, Dropdown, Image, Menu } from "antd";
 import "./_header.scss";
-import { AUTH_BASE } from "../../../config/appConfig";
+import { APP_BASE, AUTH_BASE } from "../../../config/appConfig";
 import "./_header.scss";
 import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -115,11 +115,19 @@ const Header = () => {
       {isLogin ? (
         <div className="button_header">
           <li>Khám phá</li>
-          <li>
-            <Link to={`/post`}>Đăng bài hát</Link>
-          </li>
-          <li>Học hợp âm</li>
+          <Link to={`${APP_BASE}/post`}>
+            <li>Đăng bài hát</li>
+          </Link>
           <li>Hỗ trợ</li>
+          <Link to={`${APP_BASE}/cart`}>
+            <li>
+              <img
+                alt=""
+                src="https://ananas.vn/wp-content/themes/ananas/fe-assets/images/svg/icon_gio_hang.svg"
+              />
+              giỏ hàng <span>(0)</span>
+            </li>
+          </Link>
           <Dropdown overlay={menu} trigger={["click"]}>
             <Button
               type="text"
@@ -135,11 +143,20 @@ const Header = () => {
       ) : (
         <div className="button_header">
           <li>Khám phá</li>
-          <li>
-            <Link to={`/post`}>Đăng bài hát</Link>
-          </li>
-          <li>Học hợp âm</li>
+          <Link to={`${APP_BASE}/post`}>
+            <li>Đăng bài hát</li>
+          </Link>
           <li>Hỗ trợ</li>
+          <Link to={`${APP_BASE}/cart`}>
+            <li>
+              <img
+                alt=""
+                src="https://ananas.vn/wp-content/themes/ananas/fe-assets/images/svg/icon_gio_hang.svg"
+              />
+              giỏ hàng <span>(0)</span>
+            </li>
+          </Link>
+
           <Link to={`${AUTH_BASE}/login`} style={{ marginRight: "-10px" }}>
             <UserOutlined />
           </Link>

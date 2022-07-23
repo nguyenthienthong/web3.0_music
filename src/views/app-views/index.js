@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Header from "../../components/layoutComponent/header/Header";
 import Sidebar from "../../components/layoutComponent/sidebar/Sidebar";
 import NotFound from "../notFound/404";
+import CartShop from "./CartShop";
 import DetailItems from "./Detail_items";
 import Home from "./Home";
 import Post from "./Post";
@@ -19,8 +20,9 @@ const AppViews = () => {
           <Routes>
             <Route exact path="/" element={<Home />}></Route>
             <Route path="*" element={<NotFound />}></Route>
-            <Route path="/detail" exact element={<DetailItems />}></Route>
+            <Route path="/detail/*" exact element={<DetailItems />}></Route>
             <Route exact path="/post" element={<Post />}></Route>
+            <Route exact path="/cart" element={<CartShop />}></Route>
           </Routes>
         </Content>
       </main>
