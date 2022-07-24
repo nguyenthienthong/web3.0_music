@@ -6,15 +6,21 @@ import {
   SHOWMESSAGE,
   AUTHENTICATE,
   LOGOUT,
+  LOGINGG,
 } from "../constants/authConst";
 
+export const loginGg = (user) => {
+  return {
+    type: LOGINGG,
+    data: user,
+  };
+};
 export const login = (user) => {
   return {
     type: LOGIN,
     data: user,
   };
 };
-
 export const getData = () => {
   return {
     type: ISGETDATA,
