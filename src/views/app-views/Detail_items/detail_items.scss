@@ -156,6 +156,8 @@
   font-size: 15px;
   line-height: 20px;
   padding: 20px;
+  overflow: hidden;
+  height: fit-content;
   .lyric-page-divider {
     margin: 0 10px;
     padding: 5px;
@@ -166,13 +168,14 @@
 
   .pre {
     position: relative;
-    display: -webkit-flex;
+    // display: -webkit-flex;
     display: flex;
+    flex-direction: column;
     margin: 0;
     padding: 15px 0;
-    height: 720px;
-    -webkit-flex-flow: column wrap;
-    flex-flow: column wrap;
+    // -webkit-flex-flow: column wrap;
+    // flex-flow: column wrap;
+    // flex-direction: column;
     .song-lyric-note {
       margin: 0 10px 20px;
       max-width: 500px;
@@ -184,12 +187,14 @@
       }
     }
     .chord_lyric_line {
+      width: 500px;
       padding: 0 20px;
+      height: fit-content;
       .hopamchuan_chord_inline {
         position: absolute;
         display: inline;
         font-size: 15px;
-        margin-top: -1.5em;
+        margin-top: -10px;
         .hopamchuan_chord {
           display: inline-block;
           margin-right: 5px;
@@ -198,21 +203,27 @@
           cursor: pointer;
         }
       }
+      .hopamchuan_lyric {
+        line-height: 60px;
+      }
     }
   }
   .inline {
     .chord_lyric_line {
       .hopamchuan_chord_inline {
         position: relative;
+        
       }
     }
   }
 }
 .chord_lyric_line {
+  position: relative;
   font-size: 15px;
   padding: 0 20px;
   border-right: dashed 2px #ccc;
   line-height: 1.6em;
+  height: fit-content;
 }
 
 @media (min-width: 1280px) {
@@ -235,3 +246,113 @@
     letter-spacing: -0.04em;
   }
 }
+
+.song-main-content {
+  margin: 20px;
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  .control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(70, 88, 157);
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      li {
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px;
+        color: white;
+        button {
+          height: 100%;
+        }
+        .ant-select-selector {
+          width: 60px;
+        }
+        .cuontrang .ant-select-selector{
+          width: 150px;
+          // display: flex;
+          // justify-content: flex-start;
+          // align-items: center;
+          text-align: left;
+        }
+        div {
+          border-radius: 0px !important;
+          
+        }
+      }
+    }
+    ul > button {
+      margin: 0 6px;
+    }
+  }
+  .song_lyric {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 50px;
+  }
+  .view-chord {
+    width: 98%;
+    border: 2px solid black;
+    border-radius: 6px;
+    margin: 10px;
+    h3 {
+      padding: 10px;
+      background-color: rgb(44, 44, 164);
+      color: white;
+      font-size: 1.6rem;
+      button {
+        margin: 0px 5px;
+      }
+    }
+    .wrapper-blockchord {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px;
+      .blockChord {
+        height: 130px;
+        width: 9%;
+        border: 2px solid black;
+        border-radius: 5px;
+        margin: 30px 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #9696960f;
+        p {
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+      }
+    }
+  }
+  .container_comment {
+    width: 60%;
+    justify-self: start;
+    align-self: start;
+    padding: 12px;
+    border: 1px solid black;
+    margin: 12px;
+    border-radius: 6px;
+
+    h3 {
+      font-family: BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',-apple-system;
+      font-weight: 700;
+      color: #777;
+    }
+  }
+}
+

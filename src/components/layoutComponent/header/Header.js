@@ -89,10 +89,18 @@ const Header = () => {
 				<p>Some contents...</p>
 			</Drawer>
 			<div className="button_header">
-				<li>Khám phá</li>
-				<li>Đăng bài hát</li>
-				<li>Học hợp âm</li>
-				<li>Hỗ trợ</li>
+				<li>
+					<Link to={"/explore"}>Khám phá</Link>
+				</li>
+				<li>
+					<Link to={"/post"}>Đăng bài hát</Link>
+				</li>
+				<li>
+					<Link to={""}>Học hợp âm</Link>
+				</li>
+				<li>
+					<Link to={"support"}>Hỗ trợ</Link>
+				</li>
 				<a href={`${AUTH_BASE}/login`} style={{ marginRight: "-10px" }}>
 					<UserOutlined />
 				</a>

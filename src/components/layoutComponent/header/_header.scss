@@ -77,21 +77,23 @@
       flex: 1;
       margin-left: 10px;
       vertical-align: middle;
-      li {
-        font-size: 1.7rem;
-        color: rgb(213, 213, 213);
-        cursor: pointer;
+      
+      a {
+        font-size: 2.5rem;
+        color: rgb(153, 153, 153);
         &:hover {
           color: white;
         }
       }
-
-      a {
-          font-size: 2.5rem;
-          color: rgb(153, 153, 153);
+      li {
+        a {
+          font-size: 1.7rem;
+          color: rgb(213, 213, 213);
+          cursor: pointer;
           &:hover {
             color: white;
           }
+        }
       }
 
     }
