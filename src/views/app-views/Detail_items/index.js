@@ -1,7 +1,11 @@
 import { Image, Tooltip } from "antd";
 import React from "react";
 import "./detail_items.scss";
+import { data } from "../../../FakeAPI/dataProducts";
+import { useParams } from "react-router-dom";
 const Detail_items = () => {
+  const { a, id } = useParams();
+  console.log(id);
   return (
     <div>
       <div className="contentSpacing">

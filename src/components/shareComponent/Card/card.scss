@@ -26,50 +26,6 @@
         border-radius: 4px;
         width: 100%;
       }
-      .card__items__btn {
-        &__shop {
-          box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
-          opacity: 0;
-          position: relative;
-          border-radius: 500px;
-          font-size: inherit;
-          inline-size: 48px;
-          block-size: 48px;
-          border: none;
-          background-color: #1ed760;
-          position: absolute;
-          right: 8px;
-          top: 110px;
-          span {
-            position: absolute;
-            font-size: 30px;
-            top: 4px;
-            left: 5px;
-            color: #181818;
-          }
-        }
-        &__play {
-          box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
-          opacity: 0;
-          position: relative;
-          border-radius: 500px;
-          font-size: inherit;
-          inline-size: 48px;
-          block-size: 48px;
-          border: none;
-          background-color: #d7771e;
-          position: absolute;
-          left: 8px;
-          top: 110px;
-          span {
-            position: absolute;
-            font-size: 30px;
-            top: 4px;
-            left: 4px;
-            color: #181818;
-          }
-        }
-      }
     }
     &__body {
       h3 {
@@ -90,6 +46,50 @@
         white-space: normal;
         -webkit-tap-highlight-color: transparent;
         color: #a7a7a7;
+      }
+    }
+  }
+  .card__items__btn {
+    &__shop {
+      box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      position: relative;
+      border-radius: 500px;
+      font-size: inherit;
+      inline-size: 48px;
+      block-size: 48px;
+      border: none;
+      background-color: #1ed760;
+      position: absolute;
+      right: 8px;
+      top: 110px;
+      span {
+        position: absolute;
+        font-size: 30px;
+        top: 4px;
+        left: 5px;
+        color: #181818;
+      }
+    }
+    &__play {
+      box-shadow: 0 8px 8px rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      position: relative;
+      border-radius: 500px;
+      font-size: inherit;
+      inline-size: 48px;
+      block-size: 48px;
+      border: none;
+      background-color: #d7771e;
+      position: absolute;
+      left: 8px;
+      top: 110px;
+      span {
+        position: absolute;
+        font-size: 30px;
+        top: 4px;
+        left: 4px;
+        color: #181818;
       }
     }
   }

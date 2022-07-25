@@ -12,7 +12,7 @@ export function* loginGg() {
   yield takeEvery(LOGINGG, function* ({ data }) {
     try {
       const res = yield call(authService.loginGoogle, data);
-      console.log(authService);
+      console.log(res);
       if (res.status === "Failed") {
         throw new Error(res.message);
       }

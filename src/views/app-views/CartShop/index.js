@@ -1,10 +1,10 @@
-import { Col, Row, Table } from "antd";
+import { Button, Col, Image, Row, Table } from "antd";
 import React from "react";
 import "./cartshop.scss";
 import { useSelector } from "react-redux";
+import { DeleteOutlined } from "@ant-design/icons";
 const CartShop = () => {
-  const { cartAr } = useSelector((state) => state.cartReducer);
-  console.log(cartAr);
+  useSelector((state) => console.log(state));
   const columns = [
     {
       title: "name",
@@ -15,6 +15,13 @@ const CartShop = () => {
       title: "img",
       dataIndex: "img",
       key: "img",
+      render: (a) => {
+        return (
+          <>
+            <Image width={200} src={a} />
+          </>
+        );
+      },
     },
     {
       title: "price",
@@ -25,8 +32,17 @@ const CartShop = () => {
       title: "Control",
       dataIndex: "Control",
       key: "Control",
-      reder: () => {
-        <></>;
+      render: () => {
+        return (
+          <>
+            <Button style={{ marginRight: "10px" }} danger className="btn">
+              <DeleteOutlined />
+            </Button>
+            <Button type="primary" className="btn">
+              Thanh toán
+            </Button>
+          </>
+        );
       },
     },
   ];
@@ -34,8 +50,9 @@ const CartShop = () => {
     {
       title: "Name",
       key: "1",
-      name: "John Brown",
+      name: "After You",
       img: "https://i.scdn.co/image/ab67616d00001e02959d54b4d96661b9dc1ed31f",
+      price: "1,00",
     },
   ];
   return (

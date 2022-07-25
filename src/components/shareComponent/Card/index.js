@@ -12,33 +12,33 @@ const Card = (props) => {
         return (
           <Col key={e?.id} className="card">
             <div className="card__items">
-              <Link to={`${APP_BASE}/detail/${e.id}`}>
+              <Link to={`${APP_BASE}/detail/:${e.id}`}>
                 <div className="card__items__img">
                   <img
                     style={{ borderRadius: `${data?.border}` }}
                     src={e?.urlImage}
                     alt=""
                   />
-                  <div className="card__items__btn">
-                    <button className="card__items__btn__shop">
-                      <span>
-                        <CaretRightFilled />
-                      </span>
-                    </button>
-                    <Link to={``}>
-                      <button className="card__items__btn__play">
-                        <span>
-                          <ShoppingCartOutlined />
-                        </span>
-                      </button>
-                    </Link>
-                  </div>
                 </div>
                 <div className="card__items__body">
                   <h3>{e?.name}</h3>
                   <p>{e?.content}</p>
                 </div>
               </Link>
+              <div className="card__items__btn">
+                <button className="card__items__btn__shop">
+                  <span>
+                    <CaretRightFilled />
+                  </span>
+                </button>
+                {/* <Link to={`${APP_BASE}`}> */}
+                <button className="card__items__btn__play">
+                  <span>
+                    <ShoppingCartOutlined />
+                  </span>
+                </button>
+                {/* </Link> */}
+              </div>
             </div>
           </Col>
         );
