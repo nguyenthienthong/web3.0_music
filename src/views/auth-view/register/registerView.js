@@ -1,7 +1,7 @@
 import { RollbackOutlined } from "@ant-design/icons";
 import { Button, Form, Input, message } from "antd";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import { APP_BASE, AUTH_BASE } from "../../../config/appConfig";
 import authService from "../../../services/authService";
 
@@ -23,6 +23,7 @@ const RegisterView = () => {
       content: "Success!",
       key: "success",
     });
+    <Navigate to={`${AUTH_BASE}/login`} />;
   };
 
   const onFinishFailed = (errorInfo) => {

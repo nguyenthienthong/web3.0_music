@@ -59,14 +59,14 @@ const Header = () => {
     setVisible(true);
   };
 
+  const onClose = () => {
+    setVisible(false);
+  };
   const handleLogout = () => {
     const action = logout();
     dispath(action);
   };
 
-  const onClose = () => {
-    setVisible(false);
-  };
   const menu = (
     <Menu className="p-2">
       <Menu.Item key="my-profile" icon={<UserOutlined />}>
@@ -115,19 +115,11 @@ const Header = () => {
       {isLogin ? (
         <div className="button_header">
           <li>Khám phá</li>
-          <Link to={`${APP_BASE}/post`}>
-            <li>Đăng bài hát</li>
-          </Link>
+          <li>
+            <Link to={`${APP_BASE}/post`}>Đăng bài hát</Link>
+          </li>
+          <li>Học hợp âm</li>
           <li>Hỗ trợ</li>
-          <Link to={`${APP_BASE}/cart`}>
-            <li>
-              <img
-                alt=""
-                src="https://ananas.vn/wp-content/themes/ananas/fe-assets/images/svg/icon_gio_hang.svg"
-              />
-              giỏ hàng <span>(0)</span>
-            </li>
-          </Link>
           <Dropdown overlay={menu} trigger={["click"]}>
             <Button
               type="text"
@@ -142,27 +134,26 @@ const Header = () => {
         </div>
       ) : (
         <div className="button_header">
-          <li>Khám phá</li>
-          <Link to={`${APP_BASE}/post`}>
-            <li>Đăng bài hát</li>
-          </Link>
-          <li>Hỗ trợ</li>
-          <Link to={`${APP_BASE}/cart`}>
-            <li>
-              <img
-                alt=""
-                src="https://ananas.vn/wp-content/themes/ananas/fe-assets/images/svg/icon_gio_hang.svg"
-              />
-              giỏ hàng <span>(0)</span>
-            </li>
-          </Link>
-
+          <li>
+            {" "}
+            <Link to={`${APP_BASE}/post`}>Khám phá</Link>
+          </li>
+          <li>
+            <Link to={`${APP_BASE}/post`}>Đăng bài hát</Link>
+          </li>
+          <li>
+            {" "}
+            <Link to={`${APP_BASE}`}>Học hợp âm</Link>
+          </li>
+          <li>
+            <Link to={`${APP_BASE}/cart`}>Giỏ hàng</Link>
+          </li>
           <Link to={`${AUTH_BASE}/login`} style={{ marginRight: "-10px" }}>
             <UserOutlined />
           </Link>
-          <a href="/">
+          <Link to={`${AUTH_BASE}/register`}>
             <WalletOutlined />
-          </a>
+          </Link>
         </div>
       )}
     </div>

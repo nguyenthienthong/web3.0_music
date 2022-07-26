@@ -8,20 +8,22 @@ import {
 } from "@ant-design/icons";
 import { Button, Form, Image, Input, Modal, Tooltip } from "antd";
 import React, { useEffect, useState } from "react";
+import BlockChord from "../../../components/BlockChord/BlockChord";
 import "./_post.scss";
 function Post(props) {
 	const [form] = Form.useForm();
 	const [requiredMark, setRequiredMarkType] = useState("optional");
-	const [chords, setChords] = useState("");
+	const [dataSong, setdataSong] = useState("");
 	const [readMore, setReadMore] = useState(true);
 	const [dataSinger, setDataSinger] = useState([
 		{
+			index: 0,
 			singser: "",
 			tong: "",
 			link: "",
 		},
 	]);
-	const [chordFormat, setChordsFormat] = useState(chords);
+	// const [formatText, setFormatText] = useState(false);
 	const [showLyrics, setShowLyrics] = useState([]);
 	const [arrChordsUsed, setArrChordUsed] = useState([]);
 	const { confirm } = Modal;
@@ -32,14 +34,14 @@ function Post(props) {
 	};
 
 	const addChords = () => {
-		setChords(chords + " [] ");
+		setdataSong(dataSong + " [] ");
 	};
 	const deleteText = () => {
-		setChords("");
+		setdataSong("");
 	};
 
 	const setTextInTextArea = (e) => {
-		setChords(e.target.value);
+		setdataSong(e.target.value);
 	};
 
 	const handleReadMore = () => {
@@ -47,29 +49,49 @@ function Post(props) {
 	};
 
 	const handleAddSinger = () => {
-		setDataSinger([...dataSinger, { singer: "", tong: "", link: "" }]);
+		let count = dataSinger.length;
+		setDataSinger([
+			...dataSinger,
+			{ index: count, singer: "", tong: "", link: "" },
+		]);
 	};
 
+	const handleDeleteSinger = (index) => {
+		let newArrCPN = dataSinger.filter((item) => item.index !== index);
+		setDataSinger(newArrCPN);
+	};
+
+	const handleFormatText = () => {
+		let text = dataSong.trim().replace(/\s+/g, " ");
+		setdataSong(text);
+	};
+	// useEffect
 	useEffect(() => {
-		let format = chords;
+		let format = dataSong;
 		let arrchords = [];
 		let arrlyrics = [];
 		let isInChord = false;
+		let checkSpace = "";
 		let l = "",
 			c = "";
 		for (let i = 0; i < format.length; i++) {
 			// dung regex xac dinh khoang trang giua 2 dau ngoac
+			// if (format[i] === "[")
 			if (format[i] === "[") {
+				checkSpace = "";
 				isInChord = true;
-				console.log(l);
 				arrlyrics.push(l);
 				l = "";
 			} else if (format[i] === "]") {
-				isInChord = false;
-				console.log(c);
-				arrchords.push(c);
-				c = "";
+				let text = checkSpace.trim().replace(/\s+/g, "");
+				console.log(text);
+				if (text !== "") {
+					isInChord = false;
+					arrchords.push(c);
+					c = "";
+				}
 			} else {
+				checkSpace += format[i];
 				if (isInChord) c += format[i];
 				else l += format[i];
 			}
@@ -83,24 +105,12 @@ function Post(props) {
 				{ arraychords: arrchords[i], arraylyrics: arrlyrics[i] },
 			];
 		}
-		setArrChordUsed(arrchords);
+		let newArrChordsUsed = [...new Set(arrchords)];
+		setArrChordUsed(newArrChordsUsed);
+		console.log(newFormat);
 		setShowLyrics(newFormat);
-		setChordsFormat(format);
-	}, [chords]);
+	}, [dataSong]);
 
-	const handleDeleteSinger = (index) => {
-		console.log(index);
-		let newArrCPN = dataSinger.filter();
-		setDataSinger(newArrCPN);
-	};
-
-	useEffect(() => {
-		let newArrChordsUsed = [...new Set(arrChordsUsed)];
-		// console.log(arrChordsUsed);
-		setTimeout(() => {
-			setArrChordUsed(newArrChordsUsed);
-		}, 1000);
-	}, [arrChordsUsed]);
 	// confirm
 	const showConfirm = () => {
 		confirm({
@@ -141,7 +151,7 @@ function Post(props) {
 							</Form.Item>
 							<Form.Item label="Lời bài hát và hợp âm:" required>
 								<div className="format">
-									<Button>Định dạng</Button>
+									<Button onClick={handleFormatText}>Định dạng</Button>
 									<Button>Nhập dòng</Button>
 									<Tooltip title="Nâng tông">
 										<Button>
@@ -167,7 +177,7 @@ function Post(props) {
 									size={"large"}
 									style={{ height: "400px", minHeight: "400px" }}
 									placeholder="Lời và hợp âm..."
-									value={chords}
+									value={dataSong}
 									onChange={setTextInTextArea}
 								/>
 							</Form.Item>
@@ -230,12 +240,11 @@ function Post(props) {
 									</Form.Item>
 								</div>
 								{dataSinger?.map((item, index) => (
-									<div key={index}>
-										<FormSinger
-											handleDeleteSinger={() => handleDeleteSinger(index)}
-											dataSinger={item}
-										/>
-									</div>
+									<FormSinger
+										key={index}
+										handleDeleteSinger={() => handleDeleteSinger(index)}
+										dataSinger={item}
+									/>
 								))}
 								<Form.Item>
 									<Button onClick={handleAddSinger}>Thêm ca sĩ</Button>
@@ -297,10 +306,10 @@ function Post(props) {
 						<p style={{ padding: "7px 0px" }}>Hợp âm sử dụng: </p>
 						<div className="chords-table">
 							<div className="array-chords">
-								<p>Hợp âm: {arrChordsUsed.map((item) => item + ",")}</p>
+								<p>Hợp âm: {arrChordsUsed?.map((item) => item + ",")}</p>
 							</div>
 							<div className="wrapper-blockchord">
-								{arrChordsUsed.map((item) => (
+								{arrChordsUsed?.map((item) => (
 									<BlockChord chord={item} />
 								))}
 							</div>
@@ -311,18 +320,6 @@ function Post(props) {
 		</div>
 	);
 }
-
-const BlockChord = ({ chord }) => {
-	return (
-		<div className="blockChord">
-			<div>
-				<p>
-					{chord} <SoundOutlined />
-				</p>
-			</div>
-		</div>
-	);
-};
 
 const FormSinger = ({ handleDeleteSinger }) => {
 	return (
