@@ -2,11 +2,6 @@ import React, { useState } from "react";
 import { Grid, Layout, Menu } from "antd";
 import PropTypes from "prop-types";
 
-import {
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
 import SiderCustom from "../components/layoutAdminComponent/Sider";
 import HeaderCustom from "../components/layoutAdminComponent/Header";
 import HeaderMobile from "../components/layoutAdminComponent/HeaderMobile";

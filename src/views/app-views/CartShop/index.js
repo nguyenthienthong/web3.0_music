@@ -1,27 +1,25 @@
-import { Button, Col, Image, Row, Table } from "antd";
+import { Button, Col, Image, Row, Table, Popconfirm } from "antd";
 import React from "react";
 import "./cartshop.scss";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { DeleteOutlined } from "@ant-design/icons";
+import { removeFromCart } from "../../../redux/actions/cartAction";
 const CartShop = () => {
   useSelector((state) => console.log(state));
+  const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.cartReducer);
   const columns = [
     {
       title: "name",
-      dataIndex: "name",
+      dataIndex: "item.name",
       key: "name",
+      render: (_, item) => item.item?.name,
     },
     {
       title: "img",
-      dataIndex: "img",
-      key: "img",
-      render: (a) => {
-        return (
-          <>
-            <Image width={200} src={a} />
-          </>
-        );
-      },
+      dataIndex: "item.thumbnail",
+      key: "item",
+      render: (_, item) => <Image width={200} src={item.item?.thumbnail} />,
     },
     {
       title: "price",
@@ -32,12 +30,25 @@ const CartShop = () => {
       title: "Control",
       dataIndex: "Control",
       key: "Control",
-      render: () => {
+      render: (_, item) => {
         return (
           <>
-            <Button style={{ marginRight: "10px" }} danger className="btn">
-              <DeleteOutlined />
-            </Button>
+            <Popconfirm
+              title="Bạn có muốn xóa?"
+              onConfirm={() => {
+                dispatch(removeFromCart(item.id));
+              }}
+              okText="Có"
+              cancelText="Không"
+            >
+              <Button
+                style={{ marginRight: "10px" }}
+                danger
+                className="btn"
+                icon={<DeleteOutlined />}
+              />
+            </Popconfirm>
+
             <Button type="primary" className="btn">
               Thanh toán
             </Button>
@@ -46,19 +57,11 @@ const CartShop = () => {
       },
     },
   ];
-  const data = [
-    {
-      title: "Name",
-      key: "1",
-      name: "After You",
-      img: "https://i.scdn.co/image/ab67616d00001e02959d54b4d96661b9dc1ed31f",
-      price: "1,00",
-    },
-  ];
+
   return (
     <div className="cart">
       <h2 className="cart__title">Giỏ hàng</h2>
-      <Table dataSource={data} columns={columns}></Table>
+      <Table key={cart?._id} dataSource={cart} columns={columns}></Table>
     </div>
   );
 };

@@ -10,8 +10,15 @@ const persistConfig = {
   key: "cart",
   storage,
 };
-
-const persistedReducer = persistReducer(persistConfig, reducer);
+const composeEnhancers =
+  (typeof window !== "undefined" &&
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  compose;
+const persistedReducer = persistReducer(
+  persistConfig,
+  reducer,
+  composeEnhancers
+);
 const configStore = (preloadedState) => {
   const store = createStore(
     persistedReducer,

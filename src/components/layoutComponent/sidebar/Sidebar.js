@@ -31,7 +31,7 @@ const Sidebar = () => {
             </Link>
           </li>
           <li>
-            <Link to={`${APP_BASE}`}>
+            <Link to={`${APP_BASE}/search`}>
               <p>
                 <SearchOutlined />
               </p>

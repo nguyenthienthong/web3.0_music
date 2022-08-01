@@ -6,49 +6,41 @@ import {
   UserOutlined,
   WalletOutlined,
 } from "@ant-design/icons";
-import React, { useState } from "react";
-import { Avatar, Button, Drawer, Dropdown, Image, Menu } from "antd";
+import React, { useEffect, useRef, useState } from "react";
+import { Avatar, Button, Drawer, Dropdown, Menu } from "antd";
 import "./_header.scss";
 import { APP_BASE, AUTH_BASE } from "../../../config/appConfig";
 import "./_header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { getSortName } from "../../../utils/utils";
 import { logout } from "../../../redux/actions/authAction";
-const Header = () => {
-  // const dataFakeMusic = [
-  // 	{ id: 1, name: "Màu nước mắc" },
-  // 	{ id: 2, name: "Em của ngày hôm qua" },
-  // 	{ id: 3, name: "Sao cũng được" },
-  // 	{ id: 4, name: "Big city boy" },
-  // 	{ id: 5, name: "Thiêu thân" },
-  // 	{ id: 6, name: "Trốn tìm" },
-  // 	{ id: 7, name: "Vài câu nói có khiến người thay đổi?" },
-  // 	{ id: 8, name: "Ai Chung Tình Được Mãi" },
-  // 	{ id: 9, name: "Diễm Xưa" },
-  // 	{ id: 10, name: "Tệ Thật, Anh Nhớ Em" },
-  // ];
+const Header = (props) => {
+  const { cart } = props;
+  const [length, setLength] = useState(0);
+  const [value, setValue] = useState("");
+  const navigate = useNavigate();
 
-  // const items = [
-  // 	{
-  // 		key: "post",
-  // 		path: ``,
-  // 		title: "Đăng bài viết",
-  // 		icon: PlusOutlined,
-  // 	},
-  // 	{
-  // 		key: "login",
-  // 		path: `${AUTH_BASE}/login`,
-  // 		title: "Đăng nhập",
-  // 		icon: UserOutlined,
-  // 	},
-  // 	{
-  // 		key: "register",
-  // 		path: ``,
-  // 		title: "Đăng ký",
-  // 		icon: UserOutlined,
-  // 	},
-  // ];
+  const timeoutRef = useRef(null);
+  useEffect(() => {
+    setLength(cart.length);
+  }, [length, cart]);
+
+  // useEffect(() => {
+  //
+  // }, [value]);
+  const gotoSearch = (e) => {
+    setValue(e);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+
+    timeoutRef.current = setTimeout(() => {
+      if (value !== "") {
+        navigate({
+          pathname: `search/${e}`,
+        });
+      }
+    }, 150);
+  };
   const { isLoading, isLogin, message, user } = useSelector(
     (state) => state.auth
   );
@@ -90,6 +82,7 @@ const Header = () => {
           placeholder="Tìm kiếm bài hát, nghệ sĩ"
           role="searchbox"
           type="text"
+          onKeyUp={(e) => gotoSearch(e.target.value)}
         />
         <div className="delete-text search-icon">
           <CloseOutlined />
@@ -114,12 +107,20 @@ const Header = () => {
       </Drawer>
       {isLogin ? (
         <div className="button_header">
-          <li>Khám phá</li>
+          <li>
+            <Link to={`${APP_BASE}/post`}>Khám phá</Link>
+          </li>
           <li>
             <Link to={`${APP_BASE}/post`}>Đăng bài hát</Link>
           </li>
-          <li>Học hợp âm</li>
-          <li>Hỗ trợ</li>
+          <li>
+            <Link to={`${APP_BASE}`}>Học hợp âm</Link>
+          </li>
+          <li>
+            <Link to={`${APP_BASE}/cart`}>
+              Giỏ hàng <span>({length})</span>
+            </Link>
+          </li>
           <Dropdown overlay={menu} trigger={["click"]}>
             <Button
               type="text"
@@ -135,18 +136,18 @@ const Header = () => {
       ) : (
         <div className="button_header">
           <li>
-            {" "}
             <Link to={`${APP_BASE}/post`}>Khám phá</Link>
           </li>
           <li>
             <Link to={`${APP_BASE}/post`}>Đăng bài hát</Link>
           </li>
           <li>
-            {" "}
             <Link to={`${APP_BASE}`}>Học hợp âm</Link>
           </li>
           <li>
-            <Link to={`${APP_BASE}/cart`}>Giỏ hàng</Link>
+            <Link to={`${APP_BASE}/cart`}>
+              Giỏ hàng <span>({length})</span>
+            </Link>
           </li>
           <Link to={`${AUTH_BASE}/login`} style={{ marginRight: "-10px" }}>
             <UserOutlined />

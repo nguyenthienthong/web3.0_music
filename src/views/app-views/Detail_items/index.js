@@ -19,6 +19,8 @@ import BlockChord from "../../../components/BlockChord/BlockChord";
 import Comment from "../../../components/Comment/Comment";
 import "./detail_items.scss";
 import { Link, Element } from "react-scroll";
+import { useParams } from "react-router";
+import songService from "../../../services/song.service";
 const Detail_items = () => {
   const [arrChordUsed, setArrChordUsed] = useState([]);
   const [showLyrics, setShowLyrics] = useState([]);
@@ -29,8 +31,24 @@ const Detail_items = () => {
   const [scroll, setScroll] = useState(0);
   const { TreeNode } = TreeSelect;
   const { Option } = Select;
+  const [data, setData] = useState([]);
+  const { paramDetail } = useParams();
 
-  const dataSong = `Em ơi đừng [Am]khóc bóng tối trước mắt sẽ bắt em [Em]đi.
+  useEffect(() => {
+    getData(paramDetail);
+  }, [paramDetail]);
+
+  const getData = async (e) => {
+    try {
+      const rs = await Promise.all([songService.detail(e)]);
+      const newData = rs[0].data;
+      setData(newData);
+    } catch (error) {
+      console.log(`error ${error}`);
+    }
+  };
+
+  const lyric = `Em ơi đừng [Am]khóc bóng tối trước mắt sẽ bắt em [Em]đi.
 	Em ơi đừng [Dm]lo em ơi đừng cho tương lai vụt [E7]tắt.
 	Sâu trong màu [Am]mắt có chút tiếc nuối phút cuối chỉ [Em]vì.
 	Em đâu hề [Dm]sai em đâu thể mãi để trái tim [E7]đau.
@@ -70,7 +88,7 @@ const Detail_items = () => {
   // useEffect
 
   useEffect(() => {
-    let format = dataSong;
+    let format = lyric;
     let arrchords = [];
     let arrlyrics = [];
     let isInChord = false;
@@ -112,7 +130,7 @@ const Detail_items = () => {
     let newArrChordsUsed = [...new Set(arrchords)];
     setArrChordUsed(newArrChordsUsed);
     setShowLyrics(newFormat);
-  }, [dataSong]);
+  }, [lyric]);
 
   return (
     <div>
@@ -120,12 +138,12 @@ const Detail_items = () => {
         <div className="back_color"></div>
         <div className="linear_gr"></div>
         <div className="img_content">
-          <Image src="https://i.scdn.co/image/ab67616d0000b273c01aa2db25e66a26a4c6488b" />
+          <Image src={data?.thumbnail} />
         </div>
 
         <div className="content_body">
           <span className="content_body__title">
-            <p className="type_element">Vì mẹ anh bắt chia tay</p>
+            <p className="type_element">{data?.name}</p>
           </span>
           <div className="tradeStation--price">
             <div className="tradeStation--price-container">
