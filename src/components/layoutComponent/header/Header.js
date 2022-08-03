@@ -33,6 +33,7 @@ const Header = (props) => {
   }, [length, cart]);
 
   useEffect(() => {
+    setValue(value);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
     timeoutRef.current = setTimeout(() => {
