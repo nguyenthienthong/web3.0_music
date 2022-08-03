@@ -20,7 +20,7 @@ const Header = (props) => {
   const [length, setLength] = useState(0);
   const [value, setValue] = useState("");
   const navigate = useNavigate();
-
+  console.log(value);
   const timeoutRef = useRef(null);
   useEffect(() => {
     setLength(cart.length);
@@ -39,7 +39,7 @@ const Header = (props) => {
           pathname: `search/${e}`,
         });
       }
-    }, 150);
+    }, 300);
   };
   const { isLoading, isLogin, message, user } = useSelector(
     (state) => state.auth
@@ -82,7 +82,7 @@ const Header = (props) => {
           placeholder="Tìm kiếm bài hát, nghệ sĩ"
           role="searchbox"
           type="text"
-          onKeyUp={(e) => gotoSearch(e.target.value)}
+          onChange={(e) => gotoSearch(e.target.value)}
         />
         <div className="delete-text search-icon">
           <CloseOutlined />
