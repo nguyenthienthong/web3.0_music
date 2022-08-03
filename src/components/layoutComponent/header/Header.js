@@ -26,9 +26,9 @@ const Header = (props) => {
     setLength(cart.length);
   }, [length, cart]);
 
-  // useEffect(() => {
-  //
-  // }, [value]);
+  useEffect(() => {
+    gotoSearch(value);
+  }, [value]);
   const gotoSearch = (e) => {
     setValue(e);
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
@@ -82,7 +82,7 @@ const Header = (props) => {
           placeholder="Tìm kiếm bài hát, nghệ sĩ"
           role="searchbox"
           type="text"
-          onChange={(e) => gotoSearch(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
         />
         <div className="delete-text search-icon">
           <CloseOutlined />
