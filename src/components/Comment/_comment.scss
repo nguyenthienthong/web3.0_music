@@ -1,0 +1,116 @@
+mg {
+    width: 50px;
+    border-radius: 10px;
+  }
+  input {
+    border: 1px solid rgb(209, 206, 206);
+  }
+  
+  .comment {
+    width: 100%;
+    border: 1px solid rgb(201, 201, 201);
+    border-radius: 6px;
+  
+    &__information {
+      &__first {
+        display: flex;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgb(201, 201, 201);
+        &__left {
+          width: 100%;
+          display: flex;
+          &__fs {
+            padding: 0 1rem;
+          }
+        }
+        &__right {
+          justify-items: end;
+          width: 12%;
+        }
+      }
+      &__second {
+        display: flex;
+        flex-direction: column;
+  
+        border-bottom: 1px solid rgb(201, 201, 201);
+        padding: 1rem;
+        width: 100%;
+        &__row {
+          display: flex;
+          justify-content: space-between;
+          &__item {
+            display: flex;
+            padding: 0 1rem;
+          }
+        }
+      }
+    }
+    &__content {
+      padding: 1.5rem;
+  
+      &__personal {
+        &__box {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          &__image {
+            img {
+              max-width: 50px;
+              margin-left: 10px;
+            }
+          }
+        }
+        &__button {
+          display: flex;
+          width: 100%;
+          padding: 1rem 0;
+          justify-content: end;
+          & > button:hover {
+            background-color: rgb(90, 90, 169) !important;
+          }
+        }
+      }
+      &__everyone {
+        display: flex;
+        padding: 2rem 0;
+        &__ct {
+          padding: 0 1rem;
+          &__title {
+            display: flex;
+            & > span {
+              padding: 0 1rem;
+            }
+          }
+          &__cm {
+            &__button > button {
+              cursor: pointer;
+              border: none;
+              align-items: center;
+            }
+            &__boxtext2 {
+              &__tl {
+                display: flex;
+                justify-content: flex-start;
+                &__input {
+                  padding: 0 2rem;
+                }
+              }
+              &__button {
+                display: flex;
+                justify-content: end;
+                padding: 2rem;
+                & > button {
+                  cursor: pointer;
+                  background-color: rgb(172, 168, 168);
+                  border: none;
+                  border-radius: 0.5rem;
+                  padding: 0.5rem;
+                  color: white;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }

@@ -1,0 +1,358 @@
+@import "../../../assets/scss/variables";
+
+.contentSpacing {
+  height: 30vh;
+  max-height: 500px;
+  min-height: 340px;
+  color: #fff;
+  display: flex;
+  max-width: none;
+  overflow: hidden;
+  padding-bottom: 24px;
+  position: relative;
+  padding: 0 32px;
+  padding-bottom: 24px;
+  .back_color {
+    background-color: rgb(198, 207, 215);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  .linear_gr {
+    background-image: linear-gradient(341deg, rgba(0, 0, 0, 0.5), transparent);
+    display: block;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  .img_content {
+    -webkit-box-align: end;
+    align-items: flex-end;
+    align-self: flex-end;
+    height: 192px;
+    width: 192px;
+    margin-right: 24px;
+    z-index: 0;
+    box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
+  }
+}
+
+.content_body {
+  -webkit-box-flex: 1;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-box-pack: end;
+  -ms-flex-pack: end;
+  display: -webkit-box;
+  display: flex;
+  flex: 1;
+  flex-flow: column;
+  justify-content: flex-end;
+  z-index: 0;
+  color: #fff;
+  .tradeStation--price {
+    display: flex;
+    .tradeStation--price-container {
+      display: flex;
+      align-items: center;
+      .pointer {
+        width: 25px;
+      }
+      .price--amount {
+        font-size: 40px;
+        margin-left: 0.3em;
+        font-weight: 600;
+        color: #222222;
+      }
+
+      .price--fiat-amount-secondary {
+        color: rgb(112, 122, 131);
+      }
+    }
+    .price--fiat-amount-secondary {
+      margin-top: 24px;
+      margin-left: 5px;
+      font-size: 18px;
+      color: #525252;
+    }
+  }
+
+  &__category {
+    font-weight: 700;
+    font-size: 12px;
+    margin-top: 4px;
+    text-transform: uppercase;
+    line-height: 16px;
+    align-items: center;
+    color: #fff;
+    display: flex;
+    .buy_now {
+      background-color: rgb(32, 129, 226);
+      border-color: rgb(32, 129, 226);
+      margin: 20px 0px;
+    }
+    .buy_now:hover {
+      color: rgb(255, 255, 255);
+      background-color: rgb(46, 142, 238);
+      border-color: rgb(46, 142, 238);
+    }
+    .make_offer {
+      color: rgb(32, 129, 226);
+      background-color: #fff;
+    }
+    .btn {
+      margin: 10px 5px;
+      padding: 18px 60px;
+      border-radius: 10px;
+    }
+    .btn:hover {
+      transition: all 0.2s ease 0s;
+      box-shadow: rgba(0, 0, 0, 0.1) 0px 2px 10px;
+    }
+  }
+  &__title {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    overflow: hidden;
+    text-align: left;
+    width: 100%;
+    word-break: break-word;
+    .type_element {
+      padding-bottom: 0.08em;
+      visibility: visible;
+      width: 100%;
+      font-size: 40px;
+      color: #fff;
+      margin: 0;
+    }
+  }
+
+  &__introduce {
+    font-size: 14px;
+    font-weight: 700;
+    .dots::before {
+      content: "•";
+      margin: 0px 4px;
+      font-size: 20px;
+    }
+  }
+}
+.song_lyric {
+  position: relative;
+  z-index: 1;
+  overflow: auto;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  padding-left: 0;
+  min-height: 70vh;
+  flex: 1;
+  background: #fff;
+  font-size: 15px;
+  line-height: 20px;
+  padding: 20px;
+  overflow: hidden;
+  height: fit-content;
+  .lyric-page-divider {
+    margin: 0 10px;
+    padding: 5px;
+    background: #e8e8e8;
+    text-align: center;
+    font-size: 12px;
+  }
+
+  .pre {
+    position: relative;
+    // display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 15px 0;
+    // -webkit-flex-flow: column wrap;
+    // flex-flow: column wrap;
+    // flex-direction: column;
+    .song-lyric-note {
+      margin: 0 10px 20px;
+      max-width: 500px;
+      border: 1px dashed #969696;
+      background-color: #fffce0;
+      font-size: 13px;
+      .text_only {
+        padding: 10px 20px;
+      }
+    }
+    .chord_lyric_line {
+      width: 500px;
+      padding: 0 20px;
+      height: fit-content;
+      .hopamchuan_chord_inline {
+        position: absolute;
+        display: inline;
+        font-size: 15px;
+        margin-top: -10px;
+        .hopamchuan_chord {
+          display: inline-block;
+          margin-right: 5px;
+          color: #f44336;
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+      .hopamchuan_lyric {
+        line-height: 60px;
+      }
+    }
+  }
+  .inline {
+    .chord_lyric_line {
+      .hopamchuan_chord_inline {
+        position: relative;
+        
+      }
+    }
+  }
+}
+.chord_lyric_line {
+  position: relative;
+  font-size: 15px;
+  padding: 0 20px;
+  border-right: dashed 2px #ccc;
+  line-height: 1.6em;
+  height: fit-content;
+}
+
+@media (min-width: 1280px) {
+  .contentSpacing {
+    .img_content {
+      height: 232px;
+      width: 232px;
+    }
+  }
+  .content_body {
+    align-content: space-between;
+  }
+}
+
+@media (min-width: 768px) {
+  .type_element {
+    font-size: 6rem;
+    line-height: 6rem;
+    text-transform: none;
+    letter-spacing: -0.04em;
+  }
+}
+
+.song-main-content {
+  margin: 20px;
+  width: 97%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: rgb(255, 255, 255);
+  .control {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(70, 88, 157);
+    ul {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      li {
+        height: 100%;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px;
+        color: white;
+        button {
+          height: 100%;
+        }
+        .ant-select-selector {
+          width: 60px;
+        }
+        .cuontrang .ant-select-selector{
+          width: 150px;
+          // display: flex;
+          // justify-content: flex-start;
+          // align-items: center;
+          text-align: left;
+        }
+        div {
+          border-radius: 0px !important;
+          
+        }
+      }
+    }
+    ul > button {
+      margin: 0 6px;
+    }
+  }
+  .song_lyric {
+    width: 100%;
+    height: fit-content;
+    margin-bottom: 50px;
+  }
+  .view-chord {
+    width: 98%;
+    border: 2px solid black;
+    border-radius: 6px;
+    margin: 10px;
+    h3 {
+      padding: 10px;
+      background-color: rgb(44, 44, 164);
+      color: white;
+      font-size: 1.6rem;
+      button {
+        margin: 0px 5px;
+      }
+    }
+    .wrapper-blockchord {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      margin: 10px;
+      .blockChord {
+        height: 130px;
+        width: 9%;
+        border: 2px solid black;
+        border-radius: 5px;
+        margin: 30px 10px;
+        padding: 10px;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: #9696960f;
+        p {
+            font-size: 1.6rem;
+            cursor: pointer;
+        }
+      }
+    }
+  }
+  .container_comment {
+    width: 60%;
+    justify-self: start;
+    align-self: start;
+    padding: 12px;
+    border: 1px solid black;
+    margin: 12px;
+    border-radius: 6px;
+
+    h3 {
+      font-family: BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol',-apple-system;
+      font-weight: 700;
+      color: #777;
+    }
+  }
+}
+
