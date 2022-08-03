@@ -32,20 +32,17 @@ const Header = (props) => {
     setLength(cart.length);
   }, [length, cart]);
 
-  // useEffect(() => {}, [value]);
-
-  const gotoSearch = (e) => {
-    setValue(e);
+  useEffect(() => {
     if (timeoutRef.current) clearTimeout(timeoutRef.current);
 
     timeoutRef.current = setTimeout(() => {
       if (value !== "") {
         navigate({
-          pathname: `search/${e}`,
+          pathname: `search/${value}`,
         });
       }
     }, 300);
-  };
+  }, [value]);
 
   const showDrawer = () => {
     setVisible(true);
@@ -82,7 +79,7 @@ const Header = (props) => {
           placeholder="Tìm kiếm bài hát, nghệ sĩ"
           role="searchbox"
           type="text"
-          onKeyUp={(e) => gotoSearch(e.target.value)}
+          onChange={(e) => setValue(e.target.value)}
         />
         <div className="delete-text search-icon">
           <CloseOutlined />
