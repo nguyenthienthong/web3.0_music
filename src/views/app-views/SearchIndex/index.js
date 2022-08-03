@@ -9,8 +9,32 @@ import { CaretRightFilled, ShoppingCartOutlined } from "@ant-design/icons";
 import songService from "../../../services/song.service";
 const SearchIndex = () => {
   const dispatch = useDispatch();
-  const [data, setData] = useState([]);
-
+  const data = [
+    {
+      key: 1,
+      name: "Podcast",
+      img: "https://i.scdn.co/image/567158eb895ad26718a814345af0fc43ee785ec5",
+      color: "rgb(39, 133, 106)",
+    },
+    {
+      key: 2,
+      name: "Dành cho bạn",
+      img: "https://t.scdn.co/images/ea364e99656e46a096ea1df50f581efe",
+      color: "rgb(30, 50, 100)",
+    },
+    {
+      key: 3,
+      name: "Bảng xếp hạng",
+      img: "https://charts-images.scdn.co/assets/locale_en/regional/weekly/region_global_default.jpg",
+      color: "rgb(141, 103, 171)",
+    },
+    {
+      key: 4,
+      name: "Mới phát hành",
+      img: "https://i.scdn.co/image/ab67706f000000027ea4d505212b9de1f72c5112",
+      color: "rgb(232, 17, 91)",
+    },
+  ];
   const cartHistory = (data) => {
     return (
       <Col key={data._id} className="card">
@@ -56,8 +80,22 @@ const SearchIndex = () => {
       <div className="spacer"></div>
       <div className="search_page">
         <div className="search_history">
-          <h2>Lịch sử tiềm kiếm</h2>
-          Cart
+          <h2>Duyệt tìm tất cả</h2>
+          <Row gutter={[26, 16]}>
+            {data.map((e) => {
+              return (
+                <Col key={e.key} xs={12} sm={8} md={8} lg={8} xl={4} xxl={4}>
+                  <div
+                    style={{ backgroundColor: `${e.color}` }}
+                    className="items_category"
+                  >
+                    <img className="items_category__img" alt="" src={e.img} />
+                    <h3>{e.name}</h3>
+                  </div>
+                </Col>
+              );
+            })}
+          </Row>
         </div>
 
         <div className="category"></div>

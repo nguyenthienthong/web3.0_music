@@ -25,7 +25,6 @@ const Search = () => {
     }
   };
 
-  data.map((e) => console.log(e));
   const ListItems = (props) => {
     const { name, singer, musician, thumbnail } = props.item._source;
     return (
@@ -68,15 +67,27 @@ const Search = () => {
     <div style={{ backgroundColor: "#121212" }}>
       <div className="spacer"></div>
       <div className="search_page">
-        <div className="search_history">
-          <h2>Lịch sử tiềm kiếm</h2>
-        </div>
+        {data[0] ? (
+          <>
+            <div className="search_history">
+              <h2>Lịch sử tiềm kiếm</h2>
+            </div>
+            <Row>
+              {data.map((e) => (
+                <ListItems item={e} />
+              ))}
+            </Row>
+          </>
+        ) : (
+          <>
+            <div>Không tìm thấy kết quả cho "{param}"</div>
+            <div>
+              Vui lòng đảm bảo viết đúng chính tả, hoặc sử dụng ít từ khoá hơn
+              hay thử các từ khoá khác
+            </div>
+          </>
+        )}
 
-        <Row>
-          {data.map((e) => (
-            <ListItems item={e} />
-          ))}
-        </Row>
         <div className="category"></div>
       </div>
     </div>
