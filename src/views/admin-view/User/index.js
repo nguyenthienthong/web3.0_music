@@ -138,10 +138,11 @@ const User = () => {
   ];
 
   const handleChangeRole = async () => {
-    if (!currentUser || !currentUser?._id || !currentUser?.newRole)
+    console.log(currentUser);
+    if (!currentUser || !currentUser?.id || !currentUser?.newRole)
       return message.error("Bạn không có thay đổi gì!");
     try {
-      const rs = await userService.update(currentUser?._id, {
+      await userService.update(currentUser?.id, {
         role: currentUser.newRole,
       });
       getData();

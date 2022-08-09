@@ -45,16 +45,17 @@ const LoginView = (props) => {
   const loginFacebook = async () => {
     try {
       const rs = await signInWithFacebook();
-      const info = rs.user.providerData[0];
-      console.log();
-      const data = {
-        googleId: info.uid,
-        email: info.email,
-        fullName: info.displayName,
-        avatar: info.photoURL,
-      };
-      const action = loginGg(data);
-      dispatch(action);
+      // const info = rs.user.providerData[0];
+      console.log(rs);
+
+      // const data = {
+      //   googleId: info.uid,
+      //   email: info.email,
+      //   fullName: info.displayName,
+      //   avatar: info.photoURL,
+      // };
+      // const action = loginGg(data);
+      // dispatch(action);
     } catch (error) {
       notification.error({
         message: "Login error",
@@ -138,7 +139,7 @@ const LoginView = (props) => {
           </Button>
         </Form.Item>
         <div className="another_login">
-          <Button className="btn--facebook btn_signup">
+          <Button onClick={loginFacebook} className="btn--facebook btn_signup">
             <FacebookOutlined />
             Facebook
           </Button>

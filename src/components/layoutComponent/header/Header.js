@@ -41,11 +41,7 @@ const Header = (props) => {
         navigate({
           pathname: `search/${value}`,
         });
-      } else {
-        navigate({
-          pathname: `search/`,
-        });
-      }
+      } 
     }, 300);
   }, [value]);
 

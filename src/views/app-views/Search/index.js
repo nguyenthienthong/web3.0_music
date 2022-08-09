@@ -18,7 +18,7 @@ const Search = () => {
   const getData = async (e) => {
     try {
       const rs = await Promise.all([songService.search(e)]);
-      let dataNew = rs[0].data.hits;
+      let dataNew = rs[0]?.data;
       setData(dataNew);
     } catch (error) {
       console.log(`Error ${error}`);
@@ -26,11 +26,12 @@ const Search = () => {
   };
 
   const ListItems = (props) => {
-    const { name, singer, musician, thumbnail } = props.item._source;
+    console.log(props);
+    const { name, singer, musician, thumbnail } = props.item;
     return (
-      <Col key={props.item._id} className="card">
+      <Col key={props?.item._id} className="card">
         <div className="card__items">
-          <Link to={`${APP_BASE}/detail/${props.item._id}`}>
+          <Link to={`${APP_BASE}/detail/${props?.item._id}`}>
             <div className="card__items__img">
               <img src={thumbnail} alt="" />
             </div>

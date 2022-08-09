@@ -5,6 +5,7 @@ import AppLayout from "../../layout/appLayout";
 import adminNavTree from "../../config/adminNavTree";
 import Loading from "../../components/shareComponent/loading/Loading";
 import { Route, Routes } from "react-router-dom";
+import Category from "./Category";
 const AdminView = () => {
   const Users = React.lazy(() => import("./User"));
   const { isLogin, user } = useSelector((state) => state.auth);
@@ -22,6 +23,7 @@ const AdminView = () => {
       >
         <Routes>
           <Route path="/user" exact element={<Users />}></Route>
+          <Route path="/category" exact element={<Category />}></Route>
         </Routes>
       </Suspense>
     </AppLayout>
