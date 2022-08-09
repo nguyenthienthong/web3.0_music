@@ -1,11 +1,11 @@
 import service from './axiosConfig';
 
-const songService = {
+const genreService = {
     getAll: (params = {}) => {
-        return service.get('https://api-music-dapp.herokuapp.com/api/songs', { params });
+        return service.get('https://api-music-dapp.herokuapp.com/apiapi/genres?_page=1&_size=9', { params });
     },
     // update: (id, data) => {
     //     return service.put(`/users/${id}`, data);
     // },
 };
-export default songService;
+export default genreService;

@@ -1,7 +1,7 @@
 import { Button, Col, Row, message, Avatar, Table, Tag, Space, Modal, Descriptions, Select, Popconfirm } from 'antd';
 import React, { useEffect, useState } from 'react';
 import userService from '../../../services/user.service';
-import './user.scss';
+import '../User/user.scss';
 import { getSortName } from '../../../utils/utils';
 import { Link } from 'react-router-dom';
 const { Option } = Select;
@@ -17,7 +17,7 @@ const switchColorbyRole = (role) => {
     }
 };
 
-const User = () => {
+const Genre = () => {
     const [data, setData] = useState([]);
     const [loading, setLoading] = useState({
         data: false,
@@ -61,6 +61,13 @@ const User = () => {
                     </Avatar>
                 </>
             ),
+        },
+        {
+            title: 'Mã ',
+            dataIndex: 'googleId',
+            key: 'googleId',
+            sorter: true,
+            sorter: (a, b) => (a?.googleId > b?.name ? 1 : -1),
         },
         {
             title: 'Email',
@@ -142,7 +149,7 @@ const User = () => {
                 </div>
             </Col>
             <Col span={24}>
-                <Table dataSource={data} rowKey="id" columns={columns} loading={loading.data} />
+                <Table dataSource={data} rowKey="_id" columns={columns} loading={loading.data} />
             </Col>
             <Modal
                 title="Thay đổi quền"
@@ -191,4 +198,4 @@ const User = () => {
     );
 };
 
-export default User;
+export default Genre;
